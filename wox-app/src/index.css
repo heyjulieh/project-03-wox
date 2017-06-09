@@ -7,12 +7,13 @@ body {
   font-family: sans-serif;
 }
 
-/*@media (max-width: 800px) {
-  .pull-right {
+@media (max-width: 800px) {
+  .log {
     display: none;
   }
-}*/
+}
 
+/*jumbotron*/
 .jumbotron {
   height: 200px;
   background-color: #2D4855;
@@ -23,7 +24,6 @@ body {
   background-image: url("/images/walk-bg3.jpg");
   z-index: 100;
 }
-
 h2 {
   font-family: 'Sintony', sans-serif;
   font-weight: 700;
@@ -34,10 +34,8 @@ h2 {
   font-size: 85px;
   text-shadow: 8px 13px 2px rgba(0, 0, 0, 0.4)
 }
-
-.pull-right {
+.log {
   margin-top: -35px;
-  padding-top: 5px;
   margin-right: 20px;
   top: 0;
 }
@@ -47,9 +45,10 @@ button {
   border-radius: 3px;
   margin: 5px;
   font-family: 'Roboto', sans-serif;
+  font-size: 12px;
   font-weight: 300;
   padding: 5px;
-  width: 60px;
+  width: 50px;
 }
 button.signup {
   background-color: #B5DED5;
@@ -62,25 +61,16 @@ button.login {
   margin-left: 8px;
   margin-right: 5px;
   padding-top: 2px;
-  font-size: 33px;
+  font-size: 30px;
   float: right;
   color: white;
   position: relative;
-  z-index: 100;
-}
-
-.glyphicon-th-list {
-  display: inline-block;
-  color: black;
-  font-size: 24px;
-  margin-top: -10px;
+  z-index: 50;
 }
 .message-counter {
-  display: inline-block;
   float: right;
   right: 12px;
   top: 12px;
-  margin: auto;
   padding-top: 5px;
   background-color: #CF2D2A;
   color: white;
@@ -96,6 +86,7 @@ button.login {
   position: absolute;
 }
 
+/*Navbar*/
 .navbar {
   display: inline-block;
   background-color: #7A9BAB;
@@ -103,12 +94,49 @@ button.login {
   margin: auto;
   border-radius: 0;
 }
-
+.navbar-brand.a:hover {
+  color: white;
+}
 .navbar a {
   color: white;
   text-transform: uppercase;
+  font-family: 'Roboto', sans-serif;
+  margin: 0;
+}
+.navbar a:hover {
+  color: black;
+  text-transform: uppercase;
+  font-family: 'Roboto', sans-serif;
+  margin: 0;
+}
+a:active, a:visited {
+  color: black;
+  background-color: none;
+  text-transform: uppercase;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300;
+  margin: 0;
+}
+.navbar-nav {
+  display: inline-block;
+  margin-right: 30px;
+}
+.dropdown {
+  width: 80px;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300;
+}
+.dropdown-menu {
+  background-color: #7A9BAB;
+  border: none;
+  width: 90px;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300;
+}
+a.navbar-brand {
+  color: white;
 }
 
-.navbar-header {
-  padding-top: 5px;
+a.your-walks {
+  color: white;
 }

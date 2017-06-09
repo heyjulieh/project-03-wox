@@ -6,10 +6,10 @@ class Home extends Component {
     return (
       <div>
         <div className="jumbotron">
-          <div className="pull-right">
+          <div className="log pull-right">
             <button type="submit" className="signup">signup</button>
             <button type="submit" className="login">login</button>
-            <a href ="#"><span className="glyphicon glyphicon-envelope first"/></a>
+            <a href ="#"><span className="glyphicon glyphicon-envelope"/></a>
             <span className="message-counter">
               10
             {/* need to pull in counter for messages received*/}
