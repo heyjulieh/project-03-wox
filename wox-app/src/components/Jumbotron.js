@@ -6,6 +6,7 @@ class Jumbotron extends Component {
 		super(props);
 		this.state = {
 			pageName: 'HomePage',
+      photoURL: '',
 			currentUser: null,
       loggedIn: false
 		}
@@ -20,7 +21,7 @@ class Jumbotron extends Component {
       if (currentUser) {
         console.log('Logged in:', currentUser);
         // set currentUser in App component state
-        this.setState({ currentUser });
+        this.setState({ currentUser: currentUser, photoURL: currentUser.photoURL });
         // currentUserData=currentUser;
         // console.log(currentUserData);
         console.log(this.state, "logging");
@@ -67,9 +68,9 @@ class Jumbotron extends Component {
   		return(
         <div className="jumbotron">
           <div className="log pull-right">
-            <p id="userName">{this.state.currentUser && this.state.currentUser.displayName}</p>
-            <button type="submit" className="login" onClick={this.loginButtonClicked}/>
-            <button type="submit" className="logout" onClick={this.logoutButtonClicked}/>
+            <a href="#"><img id="profile-pic" src={this.state.photoURL}/></a>
+            <button type="submit" className="login" onClick={this.loginButtonClicked}>login</button>
+            <button type="submit" className="logout" onClick={this.logoutButtonClicked}>logout</button>
             <a href ="#"><span className="glyphicon glyphicon-envelope"/></a>
             <span className="message-counter">
               10

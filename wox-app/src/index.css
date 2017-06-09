@@ -140,3 +140,10 @@ a.navbar-brand {
 a.your-walks {
   color: white;
 }
+
+#profile-pic {
+  height: 30px;
+  width: 30px;
+  border-radius: 50%;
+  border: none;
+}
