@@ -3,55 +3,73 @@ import { firebase, auth } from '../utils/firebase';
 
 class Jumbotron extends Component {
   constructor(props) {
-    super(props);
+		super(props);
+		this.state = {
+			pageName: 'HomePage',
+			currentUser: null,
+      loggedIn: false
+		}
+    this.handleGetUserData = this.handleGetUserData.bind(this)
+    this.loginButtonClicked = this.loginButtonClicked.bind(this)
+    this.logoutButtonClicked = this.logoutButtonClicked.bind(this)
 
-    this.state = {
-      currentUser: null
-    }
-  }
+	}
 
-  componentWillMount() {
+	componentWillMount() {
     auth.onAuthStateChanged(currentUser => {
       if (currentUser) {
         console.log('Logged in:', currentUser);
+        // set currentUser in App component state
         this.setState({ currentUser });
+        // currentUserData=currentUser;
+        // console.log(currentUserData);
+        console.log(this.state, "logging");
       } else {
         this.setState({ currentUser: null });
       }
-    });
+    })
   }
 
-  loginButtonClicked(e) {
+	loginButtonClicked(e) {
     e.preventDefault();
-
+    // set up provider
     const provider = new firebase.auth.GoogleAuthProvider();
     console.log("signing in")
+    // tell Firebase auth to log in with a popup and that provider
     auth.signInWithPopup(provider);
+	}
+
+  componentDidMount() {
+
+    setInterval(this.handleGetUserData, 3000);
+
   }
 
-  logoutButtonClicked(e) {
-    e.preventDefault();
+  handleGetUserData() {
 
-    auth.signOut();
-  }
+    var uData = this.state.currentUser;
 
-  sessionButton() {
-    if (!this.props.currentUser ) {
-      return   <button onClick={ this.props.loginButtonClicked } type="submit" className="login" { ...this.props }>{ this.props.children }</button>;
-    } else {
-      return (
-        <a href="#" className="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-          <img className="profile-pic" src={ this.props.currentUser.photoURL } alt="" /> { this.props.currentUser.displayName } <span className="caret"></span>
-        </a>
-      )
+    () => {
+      console.log('clicked test button');
+      this.props.onGetUserData(uData)
     }
+
   }
+
+	logoutButtonClicked(e) {
+    e.preventDefault();
+    // tell Firebase auth to log out
+    console.log("signing out");
+    auth.signOut();
+	}
+
   render() {
   		return(
         <div className="jumbotron">
           <div className="log pull-right">
-            { this.sessionButton() }
-            <button onClick={ this.props.logoutButtonClicked } type="submit" className="logout">{ this.props.children }</button>
+            <p id="userName">{this.state.currentUser && this.state.currentUser.displayName}</p>
+            <button type="submit" className="login" onClick={this.loginButtonClicked}/>
+            <button type="submit" className="logout" onClick={this.logoutButtonClicked}/>
             <a href ="#"><span className="glyphicon glyphicon-envelope"/></a>
             <span className="message-counter">
               10
