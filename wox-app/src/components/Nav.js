@@ -12,9 +12,9 @@ class Nav extends Component {
                 <li className="dropdown">
                   <a className="dropdown-toggle" data-toggle="dropdown" href="#">Walk<span className="caret"></span></a>
                   <ul className="dropdown-menu">
-                    <li><a href="https://www.twitter.com">Top Walks</a></li>
-                    <li><a href="https://www.instagram.com">WalkUps</a></li>
-                    <li><a href="https://www.facebook.com">WalkBlog</a></li>
+                    <li><a href="/walks/top-walks">Top Walks</a></li>
+                    <li><a href="/walks/meetups">WalkUps</a></li>
+                    <li><a href="/walks/blog">WalkBlog</a></li>
                   </ul>
                 </li>
               </ul>
@@ -24,11 +24,10 @@ class Nav extends Component {
                 <li className="dropdown">
                   <a className="dropdown-toggle" data-toggle="dropdown" href="#">You<span className="caret"></span></a>
                   <ul className="dropdown-menu">
-                    <li><a href="https://www.facebook.com">Messages</a></li>
-                    <li><a href="https://www.twitter.com">Your Walks</a></li>
-                    <li><a href="https://www.instagram.com">Walking Buds</a></li>
-										<li><a href="https://www.instagram.com">Preferences</a></li>
-										<li><a href="https://www.instagram.com">Signout</a></li>
+                    <li><a href="/messages">Messages</a></li>
+                    <li><a href="/user/:userId/walks">Your Walks</a></li>
+                    <li><a href="/user/:userId/friends">Walking Buds</a></li>
+										<li><a href="#">Signout</a></li>
                   </ul>
                 </li>
               </ul>
