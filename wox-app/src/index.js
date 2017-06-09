@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Home from './views/Home';
+import Home from './containers/Home';
 import registerServiceWorker from './registerServiceWorker';
 import './index.css';
 

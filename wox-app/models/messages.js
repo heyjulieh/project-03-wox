@@ -1,32 +1,25 @@
-var Messages = require('./messages');
 'use strict';
 
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
-var UserSchema = new Schema({
-	firstName: String,
-  lastName: String,
-  userName: String,
-  password: String,
-  email: String,
-  phoneNumber: String,
-  location: String,
-  hometown: String,
-	imgURL: String,
-  birthday: Date,
-	gender: String,
-  status: String,
-  interestedIn: String,
-  blurb: String,
-  receivedMessages: [String], //reference
-  sentMessages: [String], //reference
-  friends: [String], //reference
-  walks: [String], //reference and include other items in object
-  verified: Boolean
-
+var MessagesSchema = new Schema({
+	userSenderID: String, // reference
+  userAcceptorID: String,
+  userNameSender: String,
+  userNameAcceptor: String,
+	title: String,
+	content: String,
+	date: Date,
+	important: Boolean,
+  archive: String
+  user:
+	{
+		type: Schema.Types.ObjectId,
+		ref: 'User'
+	}
 });
 
-var User = mongoose.model('User', UserSchema);
+var Messages = mongoose.model('Messages', MessagesSchema);
 
-module.exports = User;
+module.exports = Messages;
