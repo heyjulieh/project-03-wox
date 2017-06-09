@@ -1,9 +1,7 @@
-import React, { Component } from 'react';
-import '../index.css';
-import Nav from '../components/Nav';
+import React, {Component} from 'react'
 import { firebase, auth } from '../utils/firebase';
 
-class Home extends Component {
+class Jumbotron extends Component {
   constructor(props) {
     super(props);
 
@@ -48,29 +46,21 @@ class Home extends Component {
       )
     }
   }
-
   render() {
-    return (
-        <div className="home">
-          <div className="jumbotron">
-            <div className="log pull-right">
-              { this.sessionButton() }
-              <button onClick={ this.props.logoutButtonClicked } type="submit" className="logout">{ this.props.children }</button>
-              <a href ="#"><span className="glyphicon glyphicon-envelope"/></a>
-              <span className="message-counter">
-                10
-              {/* need to pull in counter for messages received*/}
-              </span>
-            </div>
-            <h2>W O X</h2>
+  		return(
+        <div className="jumbotron">
+          <div className="log pull-right">
+            { this.sessionButton() }
+            <button onClick={ this.props.logoutButtonClicked } type="submit" className="logout">{ this.props.children }</button>
+            <a href ="#"><span className="glyphicon glyphicon-envelope"/></a>
+            <span className="message-counter">
+              10
+            {/* need to pull in counter for messages received*/}
+            </span>
           </div>
-          <Nav currentUser={ this.state.currentUser }
-            loginButtonClicked={ this.loginButtonClicked }
-            logoutButtonClicked={ this.logoutButtonClicked }/>
+          <h2>W O X</h2>
         </div>
-
-    );
+  		)
+  	}
   }
-}
-
-export default Home;
+  export default Jumbotron;
