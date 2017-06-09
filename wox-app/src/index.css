@@ -1,5 +1,114 @@
+/*Google Fonts*/
+@import url('https://fonts.googleapis.com/css?family=Roboto+Condensed:300,300i,400,400i,700,700i|Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i|Sintony:400,700');
+
 body {
   margin: 0;
   padding: 0;
   font-family: sans-serif;
+}
+
+/*@media (max-width: 800px) {
+  .pull-right {
+    display: none;
+  }
+}*/
+
+.jumbotron {
+  height: 200px;
+  background-color: #2D4855;
+  background-repeat: no-repeat;
+  background-position: 50% 77%;
+  background-size: cover;
+  margin: auto;
+  background-image: url("/images/walk-bg3.jpg");
+  z-index: 100;
+}
+
+h2 {
+  font-family: 'Sintony', sans-serif;
+  font-weight: 700;
+  color: #EEEEEE;
+  text-transform: uppercase;
+  vertical-align: center;
+  text-align: center;
+  font-size: 85px;
+  text-shadow: 8px 13px 2px rgba(0, 0, 0, 0.4)
+}
+
+.pull-right {
+  margin-top: -35px;
+  padding-top: 5px;
+  margin-right: 20px;
+  top: 0;
+}
+
+button {
+  border: none;
+  border-radius: 3px;
+  margin: 5px;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300;
+  padding: 5px;
+  width: 60px;
+}
+button.signup {
+  background-color: #B5DED5;
+}
+button.login {
+  background-color: #E28B80;
+}
+.glyphicon {
+  display: inline-block;
+  margin-left: 8px;
+  margin-right: 5px;
+  padding-top: 2px;
+  font-size: 33px;
+  float: right;
+  color: white;
+  position: relative;
+  z-index: 100;
+}
+
+.glyphicon-th-list {
+  display: inline-block;
+  color: black;
+  font-size: 24px;
+  margin-top: -10px;
+}
+.message-counter {
+  display: inline-block;
+  float: right;
+  right: 12px;
+  top: 12px;
+  margin: auto;
+  padding-top: 5px;
+  background-color: #CF2D2A;
+  color: white;
+  width: 19px;
+  height: 19px;
+  border-radius: 50%;
+  text-align: center;
+  margin: auto;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+  font-size: 8px;
+  z-index: 100;
+  position: absolute;
+}
+
+.navbar {
+  display: inline-block;
+  background-color: #7A9BAB;
+  width: 100%;
+  margin: auto;
+  border-radius: 0;
+}
+
+.navbar a {
+  color: white;
+  text-transform: uppercase;
+}
+
+.navbar-header {
+  padding-top: 5px;
 }
