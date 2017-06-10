@@ -2,7 +2,7 @@ import React, {Component} from 'react'
 class Footer extends Component {
   render() {
   		return(
-  			<footer className="footer">
+  			<footer className="footer navbar-fixed-bottom">
           <div className="container-fluid">
             <div className="pull-left">
               <ul className="footer-links">
@@ -12,7 +12,7 @@ class Footer extends Component {
               </ul>
             </div>
             <div className="footer-header pull-right">
-							<a href="http://localhost:3001" className="footer-header" >WOX</a>
+							<a className="footer-logo" href="http://localhost:3001">W</a>
         		</div>
           </div>
         </footer>
