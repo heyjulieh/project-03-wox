@@ -27,7 +27,8 @@ class Nav extends Component {
                     <li><a href="/messages">Messages</a></li>
                     <li><a href="/user/:userId/walks">Your Walks</a></li>
                     <li><a href="/user/:userId/friends">Walking Buds</a></li>
-										<li><a href="#">Signout</a></li>
+										<li><a href="#">Signin</a></li>
+                    <li><a href="#">Signout</a></li>
                   </ul>
                 </li>
               </ul>

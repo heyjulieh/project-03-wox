@@ -12,7 +12,7 @@ var MessagesSchema = new Schema({
 	content: String,
 	date: Date,
 	important: Boolean,
-  archive: String
+  archive: Boolean,
   user:
 	{
 		type: Schema.Types.ObjectId,

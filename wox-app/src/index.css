@@ -4,7 +4,6 @@
 body {
   margin: 0;
   padding: 0;
-  font-family: sans-serif;
 }
 
 @media (max-width: 800px) {
@@ -14,6 +13,13 @@ body {
 }
 
 /*jumbotron*/
+#profile-pic {
+  height: 30px;
+  width: 30px;
+  border-radius: 50%;
+  border: none;
+  margin-right: 7px;
+}
 .jumbotron {
   height: 200px;
   background-color: #2D4855;
@@ -136,7 +142,61 @@ a:active, a:visited {
 a.navbar-brand {
   color: white;
 }
-
 a.your-walks {
   color: white;
+}
+
+/*Footer*/
+footer {
+  background-color: #2D4855;
+}
+.footer-links {
+  display: inline-block;
+  color: lightgrey;
+  list-style: none;
+  margin-left: 0;
+  margin-top: 5px;
+  padding: 5px;
+  font-family: 'Roboto', sans-serif;
+  font-size: 12px;
+  font-weight: 300;
+}
+a.about, a.contact {
+  display: inline-block;
+  color: #7A9BAB;
+}
+a.about:hover, a.contact:hover {
+  color: white;
+  text-decoration: none;
+}
+/*.about:visited, .contact:visited {
+  color: black;
+}*/
+.footer-header {
+  bottom: 0;
+  right: 0;
+  display: inline-block;
+  background-color: white;
+  height: 50px;
+  width: 50px;
+  border-radius: 5px;
+  font-family: 'Sintony', sans-serif;
+  font-size: 30px;
+  font-weight: 700;
+  vertical-align: middle;
+  padding: 5px;
+  margin-top: 20px;
+  margin-right: 10px;
+}
+a.footer-logo {
+  vertical-align: middle;
+  color: #2D4855;
+  margin: auto;
+  padding: 5px;
+  text-align: center;
+  text-decoration: none;
+}
+a.footer-logo:hover {
+  color: #7A9BAB;
+  text-decoration: none;
 }

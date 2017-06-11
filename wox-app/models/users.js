@@ -19,9 +19,18 @@ var UserSchema = new Schema({
   status: String,
   interestedIn: String,
   blurb: String,
-  receivedMessages: [String], //reference
-  sentMessages: [String], //reference
-  friends: [String], //reference
+  receivedMessages:
+  {
+    type: Schema.Types.ObjectId,
+		ref: 'Message'
+    ref: 'User'
+  } //reference
+  sentMessages:
+  {
+    type: Schema.Types.ObjectId,
+    ref: 'Message'
+    ref: 'User'
+  }
   walks: [String], //reference and include other items in object
   verified: Boolean
 
