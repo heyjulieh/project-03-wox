@@ -2,34 +2,82 @@ var db = require('./models');
 
 var walks_list = [
 	{
-		name: 'San Francisco',
-		imgURL: '/images/walks/sanfrancisco.jpg',
-		type: 'largeCard'
+		user: 'Shane West', // reference
+	  usersFavorited: ['Shane West', 'Mandy Moore', 'Julie Huang', 'Pharrel Williams', 'Beyonce', 'Jay-Z'], // reference
+	  rating: 5,
+		title: 'A Walk to Remember',
+		content: 'I had a dream about this path by a glistening bay with tall weeds.. and I thought I would never find it.. until yesterday. My friend told me about this place called Albany Bulb-- it\'s got the right amount of weeds and the right amount of glisten. There\'s a lot of trees for shade-- perfect for a picnic after the walk. When I was there, I kept wishing there was someone I could walk with..',
+		location: 'Albany, CA',
+		dateCreated: '06/10/2017',
+		important: true,
+	  archive: false,
+	  private: false,
+		images: []
 	},
 	{
-		name: 'Dubai',
-		imgURL: '/images/walks/dubai.jpg',
-		type: 'mediumCard'
+		user: 'Mandy Moore', // reference
+	  usersFavorited: ['Shane West', 'Mandy Moore', 'Mariah Carey', 'Gal Gadot', 'Chris Pine'], // reference
+	  rating: 5,
+		title: 'I\'ve Got A Crush on This View',
+		content: 'Today, I went on a walk after class, which was around 5pm. It was a really tough day-- so I really needed some air. I started from 225 Bush and headed toward the Embarcadero. A lot of people were rushing down the street and bumping into me-- and I thought the walk was actually turning out to be a bad idea. However, as I got closer to the Embarcadero, I saw the bay-- shining in the afternoon light, and completely calm. I got to the Embarcadero and sat down on a block of cement. I took a deep breath.. and I felt a lot better. The view really brought me to a peaceful place. I\'ve been going there for the past couple of days-- and I highly recommend coming here for a good view and a deep breath of air.',
+		location: 'San Francisco, CA',
+		dateCreated: '06/08/2017',
+		important: true,
+	  archive: false,
+	  private: false,
+		images: []
 	},
 	{
-		name: 'Reykjavik',
-		imgURL: '/images/walks/reykjavik.jpg',
-		type: 'smallCard'
+		user: 'Mariah Carey', // reference
+	  usersFavorited: ['Slim Shady', 'Nick Cannon', 'Julie Huang', 'Ariana Grande'], // reference
+	  rating: 4,
+		title: 'This Walk is A Fantasy',
+		content: 'I usally don\'t do a lot of walking but I love jogging (because, then I can wear my cute Juicy Couture jogging outfit)! So, yesterday, I went on a jog in the Presidio, with my doggie boo, around the Walt Disney Museum area, in the early morning. There were not a lot of people around (since normal people work in the morning) so nobody really recognized me-- which is great, because I don\`t like signing autographs so early in the morning. Anyway, it was a sunny day with a bit of wind-- and it blew my hair the right way, so I looked extra fabulous. I felt great after that jog. I would highly recommend jogging here on weekday mornings. Take a selfie or two, because that wind will make your hair look uh-mazing!',
+		location: 'San Francisco, CA',
+		dateCreated: '06/05/2017',
+		important: false,
+	  archive: false,
+	  private: false,
+		images: []
 	},
 	{
-		name: 'Tokyo',
-		imgURL: '/images/walks/tokyo.jpg',
-		type: 'smallCard'
+		user: 'Julie Huang', // reference
+	  usersFavorited: ['Angelina Jolie', 'Beyonce', 'Mandy Moore', 'Pharrel Williams', 'Jeff Lien'], // reference
+	  rating: 5,
+		title: 'Walkin\' to A Rockin\' View',
+		content: 'There\'s a walk I always take people on whenever they\'re sad. It\'s pretty successful at cheering people up because the view at the end of the walk is so beautiful and no one really knows about it. You can see the Golden Gate Bridge, Alcatraz, the Bay Bridge, as well as some beautiful mansions. Fog or shine, the windy walk provides a good amount of time and airspace to talk about anything on peoples\'s minds. The walk begins behind Ghiradelli and up toward Coit Tower. You then make a left at the fork and continue walking all the way up until you see another fork in the road. From here, you make a right-- it should look like you are going into a dense forest-- but you\'ll find out soon enough, there is a nice path beyond the trees. At the end of the path, you should see the view I mentioned at the start of this post. Enjoy!',
+		location: 'San Francisco, CA',
+		dateCreated: '05/20/2017',
+		important: true,
+	  archive: false,
+	  private: false,
+		images: []
 	},
 	{
-		name: 'Amsterdam',
-		imgURL: '/images/walks/amsterdam.jpg',
-		type: 'smallCard'
+		user: 'Jeff Lien', // reference
+	  usersFavorited: ['Julie Huang', 'Angelina Jolie', 'Mariah Carey', 'Pharrel Williams', 'Emma Watson'], // reference
+	  rating: 5,
+		title: 'It\'s Fun Walking Up These Stairs',
+		content: 'I have been on this exercise craze for the past several weeks just because I want to look good this summer. Going to the gym hasn\'t been extremely motivating so I have been trying out different locations in the Bay Area to exercise at. I have really tried out all the lakes and parks in the Bay Area, and the best ones have some stairs to run up and down on. Stairs are a great source of cardio and is also great for your glutes. So, onto the real walk of interest: my favorite place to walk/exercise on stairs is right across Lake Meritt. There is a fountain in front of the stairs-- so you can\'t miss it.',
+		location: 'Oakland, CA',
+		dateCreated: '05/30/2017',
+		important: true,
+	  archive: false,
+	  private: false,
+		images: []
 	},
 	{
-		name: 'Oslo',
-		imgURL: '/images/walks/iceland.jpg',
-		type: 'smallCard'
+		user: 'Pharrel Williams', // reference
+	  usersFavorited: ['Jeff Lien', 'Shane West', 'Julie Huang', 'Mariah Carey', 'Beyonce', 'Jay-Z', 'Emma Watson'], // reference
+	  rating: 5,
+		title: 'Happy Walking',
+		content: 'I am so happy to share with you this walk. I\'m sure a lot of people know about this because it is so popular-- but just in case y\'all don\'t know, I want to share. My favorite walking spot is along the Santa Monica boardwalk. The Beach Boys got it right when they sang about The Boardwalk-- it really is the place to be! It is always bright, sunny, and filled with smiling faces. It doesn\'t get any happier than walking along here. I always see lovers and families just hangin\' out here. It\'s not surprising because it is just a happy place to be! If you\'re looking for a happy place to walk, I would highly recommend heading to the Santa Monica boardwalk! Also, try my favorite hot dog place, Japadog, while you are there.',
+		location: 'Santa Monica, CA'
+		dateCreated: '06/06/2017',
+		important: true,
+	  archive: false,
+	  private: false,
+		images: []
 	}
 ];
 
