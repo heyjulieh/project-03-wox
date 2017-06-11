@@ -5,7 +5,7 @@ import Nav from '../components/Nav';
 import LandingContent from '../components/LandingContent';
 import Footer from '../components/Footer';
 
-class Home extends Component {
+class HomePage extends Component {
 
 
   render() {
@@ -21,4 +21,4 @@ class Home extends Component {
   }
 }
 
-export default Home;
+export default HomePage;

@@ -8,7 +8,7 @@ import WalksPage from '../views/WalksPage'
 var routes = (
 	<div>
 		<Route path='/' component={HomePage} />
-		// <Route path='/walks' component={WalksPage} />
+		<Route path='/walks' component={WalksPage} />
 		<Route path='/users/:userName' component={UserPage}/>
 		<Route path='/users/:userName/messages/:messageId' component={MessagesPage}/>
 	</div>
