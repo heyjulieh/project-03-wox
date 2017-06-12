@@ -241,38 +241,41 @@ var walks_list = [
 // 	}
 // ];
 
-db.Walks.remove({}, function(err, walks) {
+db.User.remove({}, function(err, users) {
 console.log('removed all walks');
-db.Walks.create(walks_list, function(err, walks) {
+db.User.create(users_list, function(err, users) {
 	if (err) {
 		console.log(err);
 		return;
 	}
 
-		db.Messages.remove({}, function(err, messages) {
-			console.log('removed all messages')
+		db.Walks.remove({}, function(err, walks) {
+			console.log('removed all walks')
 
-			messages_list.forEach(function(messageInfo) {
-				var message = new db.Message({
-					userIMG: messageInfo.userIMG,
-					user: messageInfo.user,
-					cityName: messageInfo.user,
-					title: messageInfo.title,
-					text: messageInfo.text,
-					date: messageInfo.date,
-					userID: messageInfo.userID
+			walks_list.forEach(function(walksInfo) {
+				var walk = new db.Walks({
+					userName: walksInfo.userName,
+					user: walksInfo.user,
+					location: walksInfo.location,
+					title: walksInfo.title,
+					content: walksInfo.content,
+					dateCreated: walksInfo.dateCreated,
+					userCreatedID: walksInfo.userID,
+					rating: walksInfo.rating,
+					images: walksInfo.images[0],
+					important: walksInfo.important
 				});
-				db.Messages.findOne({name: messageInfo.user}, function(err, foundWalk) {
+				db.Walks.findOne({name: walksInfo.user}, function(err, foundWalk) {
 					if(err) {
 						console.log(err);
 						return;
 					}
-					messages.user = foundWalk;
-					messages.save(function(err, savedMessage) {
+					walk.user = foundWalk;
+					walk.save(function(err, savedWalk) {
 						if(err) {
 							return console.log(err);
 						}
-						console.log('saved ', savedMessage);
+						console.log('saved ', savedWalk);
 					})
 				})
 			})

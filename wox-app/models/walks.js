@@ -15,6 +15,7 @@ var WalksSchema = new Schema({
   archive: Boolean,
   private: Boolean,
 	images: [String],
+  userName: String,
   user:
 	{
 		type: Schema.Types.ObjectId,

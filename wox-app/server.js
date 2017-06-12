@@ -27,7 +27,7 @@ app.use(function(req, res, next) {
 });
 
 app.get('/api', controllers.api.index);
-// app.get('/api/users', controllers.users.index);
+app.get('/api/users', controllers.users.index);
 app.get('/api/walks/', controllers.walks.index);
 // app.get('/api/messages/', controllers.messages.index);
 app.get('/api/walks/', controllers.walks.showAllWalks);
