@@ -1,5 +1,6 @@
 import React from 'react'
 import { Route } from 'react-router'
+
 import HomePage from '../views/HomePage'
 import MessagesPage from '../views/MessagesPage'
 import UserPage from '../views/UserPage'
