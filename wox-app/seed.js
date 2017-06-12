@@ -242,7 +242,7 @@ var walks_list = [
 // ];
 
 db.User.remove({}, function(err, users) {
-console.log('removed all walks');
+console.log('removed all users');
 db.User.create(users_list, function(err, users) {
 	if (err) {
 		console.log(err);

@@ -11,7 +11,7 @@ var WalksSchema = new Schema({
 	content: String,
 	location: String,
 	dateCreated: Date,
-	important: String,
+	important: String, //yes or no
   archive: Boolean,
   private: Boolean,
 	images: [String],

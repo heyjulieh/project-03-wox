@@ -14,3 +14,8 @@ function showWalks(req, res) {
 		res.json(foundWalk);
 	});
 };
+
+module.exports = {
+	index: index,
+	showWalks: showWalks
+}

@@ -1,7 +1,7 @@
 function index(req,res) {
     res.json({
         message: 'Wox: find your path!',
-        collaborators: 'Julie',
+        collaborators: 'Julie Huang',
         documentation_url:'https://github.com/heyjulieh/project-03-wox.git',
         base_url: 'localhost:3000',
         endpoint: [
@@ -13,7 +13,7 @@ function index(req,res) {
             {
             method: 'GET',
             path: '/api/users',
-            description: 'shows all user as JSON'
+            description: 'shows all users as JSON'
             },
             {
             method: 'GET',
