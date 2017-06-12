@@ -3,12 +3,10 @@ var express = require('express'),
     mongoose = require('mongoose'),
     db = require('./models');
     controllers = require('./controllers');
-
     bodyParser = require('body-parser'),
     User = require('./models/user'),//for the user schema when we build one
-    Message = require('./models/message');//for the message schema when we build one
-    Walk = require('./models/walk');//for the walk schema when we build one
-
+    Messages = require('./models/messages');//for the message schema when we build one
+    Walks = require('./models/walks');//for the walk schema when we build one
 
 var app = express()
 
@@ -29,19 +27,19 @@ app.use(function(req, res, next) {
 });
 
 app.get('/api', controllers.api.index);
-app.get('/api/users', controllers.users.index);
+// app.get('/api/users', controllers.users.index);
 app.get('/api/walks/', controllers.walks.index);
-app.get('/api/messages/', controllers.messages.index);
+// app.get('/api/messages/', controllers.messages.index);
 app.get('/api/walks/', controllers.walks.showAllWalks);
 app.get('/api/walks/walkId', controllers.walks.showOneWalk);
-app.get('/api/users/:userId/messages', controllers.messages.showAllMessages);
-app.get('/api/users/:userId/messages/:messageId', controllers.messages.showOneMessage);
-app.post('/api/users/:userId/messages', controllers.messages.create);
-app.delete('/api/users/:userId/messages/:messageId', controllers.messages.destroy);
-app.put('/api/users/:userId/messages/:messageId', controllers.messages.update);
-app.post('/api/users/:userId/walks', controllers.walks.create);
-app.delete('/api/users/:userId/walks/:walkId', controllers.walks.destroy);
-app.put('/api/users/:userId/walks/:walkId', controllers.walks.update);
+// app.get('/api/users/:userId/messages', controllers.messages.showAllMessages);
+// app.get('/api/users/:userId/messages/:messageId', controllers.messages.showOneMessage);
+// app.post('/api/users/:userId/messages', controllers.messages.create);
+// app.delete('/api/users/:userId/messages/:messageId', controllers.messages.destroy);
+// app.put('/api/users/:userId/messages/:messageId', controllers.messages.update);
+// app.post('/api/users/:userId/walks', controllers.walks.create);
+// app.delete('/api/users/:userId/walks/:walkId', controllers.walks.destroy);
+// app.put('/api/users/:userId/walks/:walkId', controllers.walks.update);
 
 
 //use router config when we call /API

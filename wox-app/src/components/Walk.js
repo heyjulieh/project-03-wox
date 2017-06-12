@@ -1,29 +1,27 @@
 import React, {Component} from 'react'
 
-
 class Walk extends Component {
-
 	render() {
 
-	  let cardDivClass;
-	  if (this.props.walk.important === true) {
-	  	 cardDivClass = `parallax walkCard col-sm-12 col-md-6 col-lg-8 ${this.props.walk.important}`
-	  }
-	  else {
-	  	 cardDivClass = `parrallax walkCard col-sm-12 col-md-6 col-lg-4 ${this.props.walk.important}`
-	  }
-
-	  let walkLink = `/walk/${this.props.walk._id}`
+		let formattedDate = this.props.walk.date.split("T")[0];
+		let truncatedText = this.props.walk.text.substring(0, 350) + '…';
+		let walkLink = `/users/${this.props.walk.user}/walks/${this.props.walk._id}`
 
 		return(
 
-			<div className={cardDivClass}>
-				<a href={cityLink}>
-				<img alt={this.props.walk.title} src={this.props.walk.images[0]}/>
-				<h3 className="walkCardName">{this.props.props.title}</h3>
-				</a>
-			</div>
+			<div className="walkCard col-sm-12 col-md-12 col-lg-12">
+				<div className="userSection col-sm-12 col-md-12 col-lg-3">
+					<img className="walkImage img-circle img-responsive center-block" src={this.props.walk.images[0]}></img>
+					<h3 className="walkUser">{this.props.walk.user}</h3>
+				</div>
+				<div className="walkSection col-sm-12 col-md-12 col-lg-9">
+					<h1 className="walkTitle">{this.props.walk.title}</h1>
+					<p className="walkText">{truncatedText}</p>
+					<h5><a href={walkLink}>Read more…</a></h5>
+					<h6 className="walkDate">Posted on: {formattedDate}</h6>
 
+				</div>
+			</div>
 		)
 	}
 }

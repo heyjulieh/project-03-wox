@@ -1,4 +1,5 @@
 var Messages = require('./messages');
+var Walks = require('./walks');
 'use strict';
 
 var mongoose = require('mongoose');
@@ -22,18 +23,16 @@ var UserSchema = new Schema({
   receivedMessages:
   {
     type: Schema.Types.ObjectId,
-		ref: 'Message'
     ref: 'User'
-  } //reference
+  }, //reference
   sentMessages:
   {
     type: Schema.Types.ObjectId,
-    ref: 'Message'
     ref: 'User'
-  }
+  },
   walks: [String], //reference and include other items in object
+	favoritedWalks: [String],
   verified: Boolean
-
 });
 
 var User = mongoose.model('User', UserSchema);

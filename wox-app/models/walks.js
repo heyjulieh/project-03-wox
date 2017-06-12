@@ -4,7 +4,6 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
 var WalksSchema = new Schema({
-	user: String, // reference
   userCreatedID: String,
   usersFavorited: [String], //reference
   rating: Number,
@@ -12,7 +11,7 @@ var WalksSchema = new Schema({
 	content: String,
 	location: String,
 	dateCreated: Date,
-	important: Boolean,
+	important: String,
   archive: Boolean,
   private: Boolean,
 	images: [String],
@@ -21,7 +20,6 @@ var WalksSchema = new Schema({
 		type: Schema.Types.ObjectId,
 		ref: 'User'
 	}
-});
 });
 
 var Walks = mongoose.model('Walks', WalksSchema);

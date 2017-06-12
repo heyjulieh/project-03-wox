@@ -8,7 +8,7 @@ class WalkList extends Component {
 		let walksArray = this.props.walks.map( (walk) => {
 
 			return (
-				<City
+				<Walk
 					key={walk._id}
 					walk={walk}
 					className={walk.important} />
@@ -20,7 +20,6 @@ class WalkList extends Component {
 			<div className="walksGrid container-fluid">
 				<div className="row">
 				<h1>Explore Walks</h1>
-
 					{walksArray}
 				</div>
 			</div>
