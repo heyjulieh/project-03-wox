@@ -135,7 +135,7 @@ var walks_list = [
 		important: 'yes',
 	  archive: false,
 	  private: false,
-		images: []
+		imageURL:''
 	},
 	{
 		user: 'Jeff Lien', // reference
@@ -148,7 +148,7 @@ var walks_list = [
 		important: 'yes',
 	  archive: false,
 	  private: false,
-		images: []
+		imageURL:''
 	},
 	{
 		user: 'Pharrel Williams', // reference
@@ -161,7 +161,7 @@ var walks_list = [
 		important: 'yes',
 	  archive: false,
 	  private: false,
-		images: []
+		imageURL:''
 	}
 ];
 
@@ -252,25 +252,25 @@ db.User.create(users_list, function(err, users) {
 		db.Walks.remove({}, function(err, walks) {
 			console.log('removed all walks')
 
-			walks_list.forEach(function(walksInfo) {
+			walks_list.forEach(function(walkInfo) {
 				var walk = new db.Walks({
-					userName: walksInfo.userName,
-					user: walksInfo.user,
-					location: walksInfo.location,
-					title: walksInfo.title,
-					content: walksInfo.content,
-					dateCreated: walksInfo.dateCreated,
-					userCreatedID: walksInfo.userID,
-					rating: walksInfo.rating,
-					images: walksInfo.images[0],
-					important: walksInfo.important
+					userName: walkInfo.userName,
+					user: walkInfo.user,
+					location: walkInfo.location,
+					title: walkInfo.title,
+					content: walkInfo.content,
+					dateCreated: walkInfo.dateCreated,
+					userCreatedID: walkInfo.userID,
+					rating: walkInfo.rating,
+					images: walkInfo.images,
+					important: walkInfo.important
 				});
-				db.Walks.findOne({name: walksInfo.user}, function(err, foundWalk) {
+				db.User.findOne({user: walkInfo.user}, function(err, foundUser) {
 					if(err) {
 						console.log(err);
 						return;
 					}
-					walk.user = foundWalk;
+					walk.user = foundUser;
 					walk.save(function(err, savedWalk) {
 						if(err) {
 							return console.log(err);

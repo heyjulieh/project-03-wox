@@ -4,26 +4,23 @@ import Walk from './Walk'
 class WalkList extends Component {
 
 	render() {
-
 		let walksArray = this.props.walks.map( (walk) => {
-
 			return (
 				<Walk
 					key={walk._id}
+					uniqueId={[walk._id]}
 					walk={walk}
-					className={walk.important} />
+					className="walkCard" />
 			)
 		})
 
 		return(
-
-			<div className="walksGrid container-fluid">
-				<div className="row">
+			<div className="walksList container">
 				<h1>Explore Walks</h1>
+				<div className="row">
 					{walksArray}
 				</div>
 			</div>
-
 		)
 	}
 }

@@ -30,15 +30,16 @@ app.get('/api', controllers.api.index);
 app.get('/api/users', controllers.user.index);
 app.get('/api/walks', controllers.walks.index);
 // app.get('/api/messages/', controllers.messages.index);
-app.get('/api/walks/:walkId', controllers.walks.showOneWalk);
+app.get('/api/users/:userId/walks', controllers.userWalks.showWalks);
+app.get('/api/users/:userId/walks/:walkId', controllers.userWalks.showOne);
 // app.get('/api/users/:userId/messages', controllers.messages.showAllMessages);
 // app.get('/api/users/:userId/messages/:messageId', controllers.messages.showOneMessage);
 // app.post('/api/users/:userId/messages', controllers.messages.create);
 // app.delete('/api/users/:userId/messages/:messageId', controllers.messages.destroy);
 // app.put('/api/users/:userId/messages/:messageId', controllers.messages.update);
-app.post('/api/users/:userId/walks', controllers.walks.create);
-app.delete('/api/users/:userId/walks/:walkId', controllers.walks.destroy);
-app.put('/api/users/:userId/walks/:walkId', controllers.walks.update);
+app.post('/api/users/:userId/walks', controllers.userWalks.create);
+app.delete('/api/users/:userId/walks/:walkId', controllers.userWalks.destroy);
+app.put('/api/users/:userId/walks/:walkId', controllers.userWalks.update);
 
 
 //use router config when we call /API

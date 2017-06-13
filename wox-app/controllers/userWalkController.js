@@ -2,7 +2,7 @@ var db = require('../models');
 
 // Shows all walks in /api/walks route
 function index(req, res) {
-	db.Walk.find({}, function(err, allWalks){
+	db.Walks.find({}, function(err, allWalks){
 		res.json(allWalks)
 	});
 };
@@ -10,7 +10,7 @@ function index(req, res) {
 // Shows all walks under a specific user
 function showWalks(req, res) {
 	var user = req.params.userId
-	db.Walk.find({user}, function(err, showAllWalks) {
+	db.Walks.find({user}, function(err, showAllWalks) {
 		res.json(showAllWalks);
 	});
 };
@@ -18,7 +18,7 @@ function showWalks(req, res) {
 // Shows a specific walk for a specific user
 function showOne(req, res) {
     var walkId = req.params.walkId;
-    db.Walk.findById(walkId, function(err, foundWalk) {
+    db.Walks.findById(walkId, function(err, foundWalk) {
         res.json(foundWalk);
     });
 };
@@ -29,12 +29,12 @@ function create(req, res) {
 	console.log('req.body.user is: ', req.body.user)
 
 		var newWalk = new db.Walk({ //need to edit this
-			userIMG: req.body.userIMG,
+			imgURL: req.body.imgURL,
 			user: req.body.user,
-			user: req.body.user,
+			location: req.body.location,
 			title: req.body.title,
-			text: req.body.text,
-			date: req.body.date,
+			content: req.body.content,
+			dateCreated: req.body.dateCreated,
 			userID: req.body.userID
 		});
 
@@ -52,7 +52,7 @@ function create(req, res) {
 
 			} else {
 
-				db.Walk.create(newWalk, function(err, newCreatedWalk) {
+				db.Walks.create(newWalk, function(err, newCreatedWalk) {
 
 					if (err) {
 						console.log('walk save error: ', err);
@@ -69,7 +69,7 @@ function destroy(req, res) {
 
 	console.log('made it to empty destroy function')
 
-	db.Walk.remove({_id: req.params.walkId}, function (err, foundWalk) {
+	db.Walks.remove({_id: req.params.walkId}, function (err, foundWalk) {
 			if (err)
 				res.send(err);
 		});
@@ -80,7 +80,7 @@ function destroy(req, res) {
 function update(req, res) {
 
 
-	db.Walk.findOne({user: req.params.userId, _id: req.params.walkId}, function (err, updateWalk) {
+	db.Walks.findOne({user: req.params.userId, _id: req.params.walkId}, function (err, updateWalk) {
 
 		console.log('updateWalk is: ', updateWalk)
 		// updateWalk = req.body;

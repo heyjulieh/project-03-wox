@@ -5,7 +5,7 @@ class Nav extends Component {
   			<nav className="navbar">
           <div className="container-fluid">
             <div className="navbar-header pull-left">
-							<a href="http://localhost:3001" className="navbar-brand" >Home</a>
+							<a href="/" className="navbar-brand" >Home</a>
         		</div>
             <div className="pull-right">
               <ul className="nav navbar-nav">

@@ -5,7 +5,6 @@ class Jumbotron extends Component {
   constructor(props) {
 		super(props);
 		this.state = {
-			pageName: 'HomePage',
       photoURL: '',
 			currentUser: null,
       loggedIn: false

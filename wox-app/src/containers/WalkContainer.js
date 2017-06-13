@@ -1,9 +1,9 @@
-import React, {Component} from 'react'
+import React, {Component} from 'react';
 import $ from 'jquery-ajax';
-import WalkList from '../components/WalkList'
-import Walks from '../components/Walk'
-import CreateWalkForm from '../components/CreateWalkForm'
 
+import WalkList from '../components/WalkList';
+import Walk from '../components/Walk';
+import WalkForm from '../components/WalkForm'
 
 class WalkContainer extends Component {
 
@@ -16,11 +16,13 @@ class WalkContainer extends Component {
 			walks: []
 		};
 
+		console.log('walk state', this.state);
+
 		this.loadWalksFromServer = this.loadWalksFromServer.bind(this);
-		this.handleNewWalksSubmit = this.handleNewWalksSubmit.bind(this);
-		//this.handleWalksSubmit = this.handleWalksSubmit.bind(this);
-		// this.handleWalksDelete = this.handleWalkstDelete.bind(this);
-		// this.handleWalksUpdate = this.handleWalksUpdate.bind(this);
+		this.handleNewWalkSubmit = this.handleNewWalkSubmit.bind(this);
+		//this.handleWalkSubmit = this.handleWalkSubmit.bind(this);
+		this.handleWalkDelete = this.handleWalkDelete.bind(this);
+		this.handleWalkUpdate = this.handleWalkUpdate.bind(this);
 
 	}
 
@@ -36,16 +38,16 @@ class WalkContainer extends Component {
 			})
   	}
 
-	handleNewWalksSubmit(walk){
+	handleNewWalkSubmit(walk){
 
 		walk.user = this.props.routeParams.userId;
 
-		console.log('reached handleNewWalksSubmit');
+		console.log('reached handleNewWalkSubmit');
 		let walks = this.state.walks;
 		console.log('walks is: ', walks);
-		let newWalks = walks.concat([walk]);
-		console.log('newWalks is: ', newWalks)
-		this.setState({walks: newWalks});
+		let newWalk = walks.concat([walk]);
+		console.log('newWalk is: ', newWalk)
+		this.setState({walks: newWalk});
 		// use this once walks' data route is confirmed
 		//url: 'http://localhost:3000/api/users/:userId/walks'
 
@@ -62,20 +64,20 @@ class WalkContainer extends Component {
 		});
 	}
 
-handleWalksDelete(id){
+handleWalkDelete(id){
     $.ajax({
       method: 'DELETE',
       url: 'http://localhost:3000/api/users/:userId/walks/:walkId'
 
 	    })
 	    .then((res) => {
-	      console.log('Walks deleted');
+	      console.log('Walk deleted');
 	    }, (err) => {
 	      console.error(err);
 	    });
 	}
 
-    handleWalksUpdate(id, walk) {
+    handleWalkUpdate(id, walk) {
     //sends the walks id and new text to our api
     $.ajax({
       method: 'PUT',
@@ -97,23 +99,23 @@ handleWalksDelete(id){
 
 	render() {
 
-		const targetWalks = this.state.walks.map(walk => walk.userName)
+		const targetWalk = this.state.walks.map(walk => walk.userName)
 
-		const testWalks = this.state.walks[0]
+		const testWalk = this.state.walks[0]
 
-		console.log('targetWalks is: ', testWalks)
+		console.log('targetWalk is: ', testWalk)
 
 		return(
 
 			<div>
-				<WalksList
-					userName={targetWalks[0]}
+				<WalkList
+					userName={targetWalk[0]}
 					walks={this.state.walks}
-					onWalksDelete={this.handleWalksDelete}
-					onWalksUpdate={this.handleWalksUpdate}/>
-				<CreateWalksForm
-       				 onCreateWalksFormSubmit={ this.handleNewWalksSubmit } />
-       		</div>
+					onWalkDelete={this.handleWalkDelete}
+					onWalkUpdate={this.handleWalkUpdate} />
+				<WalkForm
+       		onWalkFormSubmit={this.handleNewWalkSubmit} />
+      </div>
 		)
 	}
 }

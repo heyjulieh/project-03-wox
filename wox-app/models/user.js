@@ -19,9 +19,6 @@ var UserSchema = new Schema({
   status: String,
   interestedIn: String,
   blurb: String,
-  mesages: [String], //reference
-  walks: [String], //reference and include other items in object
-	favoritedWalks: [String],
   verified: Boolean
 });
 
