@@ -21,18 +21,17 @@ class WalkContainer extends Component {
 		this.loadWalksFromServer = this.loadWalksFromServer.bind(this);
 		this.handleNewWalkSubmit = this.handleNewWalkSubmit.bind(this);
 		//this.handleWalkSubmit = this.handleWalkSubmit.bind(this);
-		this.handleWalkDelete = this.handleWalkDelete.bind(this);
-		this.handleWalkUpdate = this.handleWalkUpdate.bind(this);
+		// this.handleWalkDelete = this.handleWalkDelete.bind(this);
+		// this.handleWalkUpdate = this.handleWalkUpdate.bind(this);
 
 	}
 
 	loadWalksFromServer(){
 
 		// need to load walks from server
-		console.log('user id', this.props.routeParams.userId);
 	    $.ajax({
 	      method: 'GET',
-	      url: `http://localhost:3000/api/users/${this.props.routeParams.userId}/walks`
+	      url: `http://localhost:3000/api/walks`
 	    })
 	    .then( (res) => {this.setState({walks: res})
 			})
@@ -40,7 +39,7 @@ class WalkContainer extends Component {
 
 	handleNewWalkSubmit(walk){
 
-		walk.user = this.props.routeParams.userId;
+		walk.user = this.props.routeParams.userName;
 
 		console.log('reached handleNewWalkSubmit');
 		let walks = this.state.walks;
@@ -64,36 +63,37 @@ class WalkContainer extends Component {
 		});
 	}
 
-handleWalkDelete(id){
-    $.ajax({
-      method: 'DELETE',
-      url: 'http://localhost:3000/api/users/:userId/walks/:walkId'
-
-	    })
-	    .then((res) => {
-	      console.log('Walk deleted');
-	    }, (err) => {
-	      console.error(err);
-	    });
-	}
-
-    handleWalkUpdate(id, walk) {
-    //sends the walks id and new text to our api
-    $.ajax({
-      method: 'PUT',
-      url:'http://localhost:3000/api/users/:userId/walks/:walkId' ,
-      data: walk
-    })
-    .then(res => {
-      console.log(res);
-    }, err => {
-      console.log(err);
-    })
-  }
+// handleWalkDelete(id){
+//     $.ajax({
+//       method: 'DELETE',
+//       url: 'http://localhost:3000/api/users/:userId/walks/:walkId'
+//
+// 	    })
+// 	    .then((res) => {
+// 	      console.log('Walk deleted');
+// 	    }, (err) => {
+// 	      console.error(err);
+// 	    });
+// 	}
+//
+//     handleWalkUpdate(id, walk) {
+//     //sends the walks id and new text to our api
+//     $.ajax({
+//       method: 'PUT',
+//       url:'http://localhost:3000/api/users/:userId/walks/:walkId' ,
+//       data: walk
+//     })
+//     .then(res => {
+//       console.log(res);
+//     }, err => {
+//       console.log(err);
+//     })
+//   }
 
   componentDidMount() {
     this.loadWalksFromServer();
     // setInterval(this.loadWalksFromServer, this.props.pollInterval);
+		console.log('loadwalks', this.state.walks);
   }
 
 
@@ -107,12 +107,13 @@ handleWalkDelete(id){
 
 		return(
 
-			<div>
+			<div className="wrapper">
 				<WalkList
 					userName={targetWalk[0]}
 					walks={this.state.walks}
-					onWalkDelete={this.handleWalkDelete}
-					onWalkUpdate={this.handleWalkUpdate} />
+					// onWalkDelete={this.handleWalkDelete}
+					// onWalkUpdate={this.handleWalkUpdate}
+					/>
 				<WalkForm
        		onWalkFormSubmit={this.handleNewWalkSubmit} />
       </div>

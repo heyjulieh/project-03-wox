@@ -9,6 +9,7 @@ class WalkList extends Component {
 				<Walk
 					key={walk._id}
 					uniqueId={[walk._id]}
+					user={[walk.userName]}
 					walk={walk}
 					className="walkCard" />
 			)
@@ -16,7 +17,7 @@ class WalkList extends Component {
 
 		return(
 			<div className="walksList container">
-				<h1>Explore Walks</h1>
+				<h1 className="walksList">Explore Walks</h1>
 				<div className="row">
 					{walksArray}
 				</div>

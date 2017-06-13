@@ -5,7 +5,7 @@ class WalkForm extends Component {
    super(props);
    this.state = {
      images: '',
-     user: '',
+     userName: '',
      title: '',
      content: '',
      dateCreated: Date,
@@ -22,8 +22,8 @@ class WalkForm extends Component {
      this.setState({ images: e.target.value });
    }
 
-   if (e.target.name === 'user') {
-     this.setState({ user: e.target.value });
+   if (e.target.name === 'userName') {
+     this.setState({ userName: e.target.value });
    }
 
    if (e.target.name === 'title') {
@@ -40,14 +40,13 @@ class WalkForm extends Component {
      if (e.target.name === 'userID') {
      this.setState({ userID: e.target.value });
    }
-
  }
 
  handleNewWalkSubmit(e) {
 
    e.preventDefault();
    let images = this.state.images.trim();
-   let user = this.state.user.trim();
+   let userName = this.state.userName.trim();
    let title = this.state.title.trim();
    let content = this.state.content.trim();
    let dateCreated = this.state.dateCreated;
@@ -55,12 +54,9 @@ class WalkForm extends Component {
    let userID = this.state.userID.trim();
 
 
-   if (!images || !user || !title || !content || !dateCreated || !location || !userID ) {
-     return;
-   }
    this.props.onWalkFormSubmit(
-   {	 images: images,
-       user: user,
+     { images: images,
+       userName: userName,
        title: title,
        content: content,
        dateCreated: dateCreated,
@@ -68,13 +64,13 @@ class WalkForm extends Component {
        userID: userID,
    });
    this.setState(
-   {	images: images,
-     user: user,
-     title: title,
-     content: content,
-     dateCreated: Date,
-     location: location,
-     userID: userID,
+     { images: images,
+       userName: userName,
+       title: title,
+       content: content,
+       dateCreated: dateCreated,
+       location: location,
+       userID: userID,
    });
 
    console.log('logging this.state: ', this.state);
@@ -82,7 +78,7 @@ class WalkForm extends Component {
 
  render() {
    return (
-     <div className="container">
+     <div className=" walk-form container">
       <div className="form-group row">
       <h3 className="formheader">Add Your Walk</h3>
        <form className="walkList-form" onSubmit={ this.handleNewWalkSubmit }>
@@ -90,15 +86,15 @@ class WalkForm extends Component {
              className='form-control'
              type='text'
              name='images'
-             placeholder='Link to your profile image...'
+             placeholder='Link to Images...'
              value={ this.state.images }
              onChange={ this.handleInputChange } /><br></br>
            <input
              className='form-control'
              type='text'
              name='user'
-             placeholder='Enter your name...'
-             value={ this.state.user }
+             placeholder='Enter your Name...'
+             value={ this.state.userName }
              onChange={ this.handleInputChange } /><br></br>
            <input
              className='form-control'
@@ -124,9 +120,10 @@ class WalkForm extends Component {
              onChange={ this.handleInputChange } />
            <input
              className='form-control'
-             type='hidden'
-             name='date'
-             value={Date.now()} />
+             type='date'
+             name='dateCreated'
+             value={ this.state.dateCreated}
+             onChange={ this.handleInputChange } /><br></br>
            <input
              className='form-control'
              type='text'

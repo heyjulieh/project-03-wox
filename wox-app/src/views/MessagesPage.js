@@ -23,7 +23,8 @@ class MessagesPage extends Component {
           <Jumbotron
             onGetUserData={this.getUserData.bind(this)}/>
           <Nav />
-          <MessageContainer routeParams={this.props.params}/>
+          <MessageContainer
+            routeParams={this.props.params}/>
           <Footer />
         </div>
       );

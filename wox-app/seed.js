@@ -80,6 +80,22 @@ var users_list = [
 		interestedIn: 'Men',
 		blurb: 'You might know me as the best singer in the entire world. I give my all when I sing-- and I\'m sure you know it. Because I work so hard all the time, I just haven\'t met the one I belong with yet. Nick is a great baby daddy but I still need more. Hopefully, the ONE is out there. If so, holler at me for a walk!',
 		verfied: true
+	},
+	{
+		user: 'Pharrel Williams',
+		userName: 'Sk8boardP',
+		password: '1CECR3AM',
+		email: 'sk8boardp@g.com',
+		phoneNumber: '(555)420-4200',
+		location: 'Oakland, CA',
+		hometown: 'Virginia Beach, VA',
+		imgUrl: '',
+		birthday: '03/27/1969',
+		gender: 'Female',
+		status: 'Taken',
+		interestedIn: 'Women',
+		blurb: 'I\'m always humble. I love my fans. I can hear music. Please go watch my new music video for Despicable Me called Yellow Light. Though, I\'m not looking for anyone, I love everyone and always strive to make everyone HAPPY. I am hoping to spread happiness by spreading my knowledge of inspirational walks.',
+		verfied: true
 	}
 
 ];
@@ -87,6 +103,7 @@ var users_list = [
 var walks_list = [
 	{
 		user: 'Shane West', // reference
+		userName: 'Hotrebel1',
 	  usersFavorited: ['Shane West', 'Mandy Moore', 'Julie Huang', 'Pharrel Williams', 'Beyonce', 'Jay-Z'], // reference
 	  rating: 5,
 		title: 'A Walk to Remember',
@@ -100,6 +117,7 @@ var walks_list = [
 	},
 	{
 		user: 'Mandy Moore', // reference
+		userName: 'CandyMandy',
 	  usersFavorited: ['Shane West', 'Mandy Moore', 'Mariah Carey', 'Gal Gadot', 'Chris Pine'], // reference
 	  rating: 5,
 		title: 'I\'ve Got A Crush on This View',
@@ -113,6 +131,7 @@ var walks_list = [
 	},
 	{
 		user: 'Mariah Carey', // reference
+		userName: 'MadameMimiButterfly',
 	  usersFavorited: ['Slim Shady', 'Nick Cannon', 'Julie Huang', 'Ariana Grande'], // reference
 	  rating: 4,
 		title: 'This Walk is A Fantasy',
@@ -126,6 +145,7 @@ var walks_list = [
 	},
 	{
 		user: 'Julie Huang', // reference
+		userName: 'JuhjuhJulie',
 	  usersFavorited: ['Angelina Jolie', 'Beyonce', 'Mandy Moore', 'Pharrel Williams', 'Jeff Lien'], // reference
 	  rating: 5,
 		title: 'Walkin\' to A Rockin\' View',
@@ -139,6 +159,7 @@ var walks_list = [
 	},
 	{
 		user: 'Jeff Lien', // reference
+		userName: 'ALi3n626',
 	  usersFavorited: ['Julie Huang', 'Angelina Jolie', 'Mariah Carey', 'Pharrel Williams', 'Emma Watson'], // reference
 	  rating: 5,
 		title: 'It\'s Fun Walking Up These Stairs',
@@ -152,6 +173,7 @@ var walks_list = [
 	},
 	{
 		user: 'Pharrel Williams', // reference
+		userName: 'sk8boardP',
 	  usersFavorited: ['Jeff Lien', 'Shane West', 'Julie Huang', 'Mariah Carey', 'Beyonce', 'Jay-Z', 'Emma Watson'], // reference
 	  rating: 5,
 		title: 'Happy Walking',

@@ -6,8 +6,13 @@ body {
   padding: 0;
 }
 
+html, body {
+  height: 100%;
+  margin: 0;
+}
+
 @media (max-width: 800px) {
-  .log {
+  .login, .logout, .glyphicon-envelope, .message-counter {
     display: none;
   }
 }
@@ -199,4 +204,21 @@ a.footer-logo {
 a.footer-logo:hover {
   color: #7A9BAB;
   text-decoration: none;
+}
+
+/*Walk Page*/
+.wrapper {
+  min-height: 100%;
+
+  /* Equal to height of footer */
+  /* But also accounting for potential margin-bottom of last child */
+  margin-bottom: 50px;
+}
+
+h1.walksList {
+  font-family: 'Sintony', sans-serif;
+  font-size: 24px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #2D4855;
 }

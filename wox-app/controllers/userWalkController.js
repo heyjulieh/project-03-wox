@@ -28,8 +28,8 @@ function create(req, res) {
 	console.log('req.body: ', req.body)
 	console.log('req.body.user is: ', req.body.user)
 
-		var newWalk = new db.Walk({ //need to edit this
-			imgURL: req.body.imgURL,
+		var newWalk = new db.Walks({ //need to edit this
+			images: req.body.images,
 			user: req.body.user,
 			location: req.body.location,
 			title: req.body.title,
