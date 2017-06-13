@@ -3,7 +3,6 @@ import '../index.css';
 import Jumbotron from '../components/Jumbotron';
 import Nav from '../components/Nav';
 import WalkContainer from '../containers/WalkContainer';
-import WalkForm from '../components/WalkForm'
 import Footer from '../components/Footer';
 
 class WalksPage extends Component {
@@ -23,7 +22,8 @@ class WalksPage extends Component {
           <Jumbotron
             onGetUserData={this.getUserData.bind(this)}/>
           <Nav />
-          <WalkContainer routeParams={this.props.params}/>
+          <WalkContainer
+            routeParams={this.props.params}/>
           <Footer />
         </div>
 

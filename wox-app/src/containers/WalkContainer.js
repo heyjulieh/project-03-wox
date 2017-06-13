@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import $ from 'jquery-ajax';
 
 import WalkList from '../components/WalkList';
-import Walk from '../components/Walk';
+// import Walk from '../components/Walk';
 import WalkForm from '../components/WalkForm'
 
 class WalkContainer extends Component {

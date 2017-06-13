@@ -136,7 +136,7 @@ class WalkForm extends Component {
            <button
              type='submit'
              className='btn btn-primary'
-             value='Post'>Submit</button>
+             value='Walk'>Submit</button>
        </form>
       </div>
     </div>

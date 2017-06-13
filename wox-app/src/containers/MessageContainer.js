@@ -1,7 +1,6 @@
 import React, {Component} from 'react'
 import $ from 'jquery-ajax';
 import MessageList from '../components/MessageList'
-import Message from '../components/Message'
 import MessageForm from '../components/MessageForm'
 
 
@@ -87,7 +86,7 @@ handleMessageDelete(id){
 
 	render() {
 
-		const targetMessage = this.state.messages.map(message => message.userName)
+		const targetMessage = this.state.messages.map(message => message.userSender)
 
 		const testMessage = this.state.messages[0]
 
