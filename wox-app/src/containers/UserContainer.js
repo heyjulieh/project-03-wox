@@ -18,7 +18,7 @@ class UserContainer extends Component {
 	loadUserFromServer() {
 		$.ajax({
 			method: 'GET',
-			url: `http://localhost:3000/api/users/${this.props.routeParams.userId}`
+			url: `http://localhost:3000/api/users`
 		})
 		.then((res) => {
 			console.log(this.props.routeParams, 'route params')
@@ -63,7 +63,7 @@ class UserContainer extends Component {
 		return(
 
 			<User
-				user={ this.state.walk }
+				user={ this.state.user }
 				onUserUpdate={this.handleUserUpdate}
 				onUserDelete={this.handleUserDelete}
 			/>

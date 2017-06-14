@@ -1,28 +1,27 @@
 import React, {Component} from 'react'
 
-class Walk extends Component {
+class User extends Component {
 	render() {
 
-		let formattedDate = this.props.walk.dateCreated.split("T")[0];
-		let truncatedContent = this.props.walk.content.substring(0, 500) + '...';
-		let walkLink = `/users/${this.props.walk.user}/walks/${this.props.walk._id}`
-		console.log('walk props', this.props.walk)
+		{/*let userLink = `/users/${this.props.user.user}`*/}
+		console.log('user props', this.props.user)
 		return(
 
-			<div className="walkCard col-sm-12 col-md-12 col-lg-12">
+			<div className="userCard col-sm-12 col-md-12 col-lg-12">
 				<div className="userSection col-sm-12 col-md-3 col-lg-3">
-					<img className="walkImage img-circle img-responsive center-block" src={this.props.walk.images[0]}></img>
-					<h3 className="walkUser">{this.props.walk.userName}</h3>
+				{/*<img className="userImage img-circle img-responsive center-block" src={this.props.user.imgURL}></img>*/}
+					<h3 className="userUser">{this.props.user.userName}</h3>
 				</div>
-				<div className="walkSection col-sm-12 col-md-9 col-lg-9">
-					<h1 className="walkTitle">{this.props.walk.title}</h1>
-					<p className="walkContent">{truncatedContent}</p>
-					<h5 className="pull-right"><a className="walkLink" href={walkLink}>Read more...</a></h5>
-					<h6 className="walkDate pull-right">Posted on: {formattedDate}</h6>
+				<div className="userSection col-sm-12 col-md-9 col-lg-9">
+					<h1 className="userGender">{this.props.user.gender}</h1>
+					<p className="userStatus">{this.props.user.status}</p>
+          <p className="userInterestedIn">{this.props.user.interestedIn}</p>
+          <p className="userBlurb">{this.props.user.blurb}</p>
+					{/* <h5 className="pull-right"><a className="userLink" href={userLink}>Read more...</a></h5>*/}
 				</div>
 			</div>
 		)
 	}
 }
 
-export default Walk;
+export default User;

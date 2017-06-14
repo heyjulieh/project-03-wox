@@ -7,7 +7,7 @@ function index(req, res) {
 	});
 };
 
-// Shows all users
+// Shows one user
 function showUsers(req, res) {
 	var userId = req.params.userId;
 	db.User.findById(userId, function(err, foundUser) {
