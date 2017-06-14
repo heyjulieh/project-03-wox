@@ -8,7 +8,6 @@ class WalkDetailContainer extends Component {
 	constructor() {
 		super();
 		this.state = {
-
 			walk: []
 		}
 

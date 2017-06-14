@@ -1,5 +1,6 @@
 import React, {Component} from 'react'
 import { firebase, auth } from '../utils/firebase';
+import User from './User'
 
 
 class UserHeader extends Component {
@@ -7,6 +8,7 @@ class UserHeader extends Component {
 		super(props)
 		this.state={
       currentUser: null,
+			imgUrl:'',
 			photoURL: '',
 			displayName: '',
       gender: '',
@@ -36,8 +38,8 @@ class UserHeader extends Component {
 		return(
 			<div className="user-header col-sm-12 col-md-12 col-lg-12">
 				<div className="userSection col-sm-12 col-md-12 col-lg-3">
-					<img src={this.state.photoURL}></img>
-					<h4 className="User">{this.state.displayName}</h4>
+					<img src={this.state.imgURL}></img>
+					<h4 className="User">{this.state.userName}</h4>
           <p>{this.state.gender}</p>
           <p>{this.state.status}</p>
           <p>{this.state.interestedIn}</p>

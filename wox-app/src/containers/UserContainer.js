@@ -18,7 +18,7 @@ class UserContainer extends Component {
 	loadUserFromServer() {
 		$.ajax({
 			method: 'GET',
-			url: `http://localhost:3000/api/users`
+			url: `http://localhost:3000/api/users/${this.props.routeParams.userId}`
 		})
 		.then((res) => {
 			console.log(this.props.routeParams, 'route params')

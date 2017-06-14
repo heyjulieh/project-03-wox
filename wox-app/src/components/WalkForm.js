@@ -7,7 +7,6 @@ class WalkForm extends Component {
    super(props);
    this.state = {
      modal: false,
-     backdrop: false,
      images: '',
      userName: '',
      title: '',
@@ -95,7 +94,7 @@ class WalkForm extends Component {
        <Button className="add-walk" onClick={this.toggle}>
          + Your Walk
        </Button>
-      <Modal isOpen={this.state.modal} toggle={this.toggle} className="walk-modal">
+      <Modal fade={false} isOpen={this.state.modal} toggle={this.toggle} className="walk-modal">
          <ModalHeader toggle={this.toggle}>Add Your Walk</ModalHeader>
          <ModalBody>
            <div className=" walk-form container">
@@ -164,5 +163,6 @@ class WalkForm extends Component {
   )
  }
 }
+
 
 export default WalkForm;

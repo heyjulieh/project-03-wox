@@ -9,7 +9,7 @@ var users_list = [
 		phoneNumber: '(555)123-4567',
 		location: 'San Francisco, CA',
 		hometown: 'Baton Rouge, LA',
-		imgUrl: '',
+		imgUrl: 'https://pbs.twimg.com/profile_images/533413826222252032/ntxQDRry.jpeg',
 		birthday: '06/10/1978',
 		gender: 'Male',
 		status: 'Single',
@@ -25,7 +25,7 @@ var users_list = [
 		phoneNumber: '(555)456-1234',
 		location: 'San Francisco, CA',
 		hometown: 'Nashua, NH',
-		imgUrl: '',
+		imgUrl: 'http://therichest.imgix.net/wp-content/uploads/Mandy-Moore.jpg?auto=format&q=90&lossless=1',
 		birthday: '04/10/1984',
 		gender: 'Female',
 		status: 'Single',
@@ -82,7 +82,7 @@ var users_list = [
 		verfied: true
 	},
 	{
-		user: 'Pharrel Williams',
+		user: 'Pharrell Williams',
 		userName: 'Sk8boardP',
 		password: '1CECR3AM',
 		email: 'sk8boardp@g.com',
@@ -104,7 +104,7 @@ var walks_list = [
 	{
 		user: 'Shane West', // reference
 		userName: 'Hotrebel1',
-	  usersFavorited: ['Shane West', 'Mandy Moore', 'Julie Huang', 'Pharrel Williams', 'Beyonce', 'Jay-Z'], // reference
+	  usersFavorited: ['Shane West', 'Mandy Moore', 'Julie Huang', 'Pharrell Williams', 'Beyonce', 'Jay-Z'], // reference
 	  rating: 5,
 		title: 'A Walk to Remember',
 		content: 'I had a dream about this path by a glistening bay with tall weeds.. and I thought I would never find it.. until yesterday. My friend told me about this place called Albany Bulb-- it\'s got the right amount of weeds and the right amount of glisten. There\'s a lot of trees for shade-- perfect for a picnic after the walk. When I was there, I kept wishing there was someone I could walk with..',
@@ -146,7 +146,7 @@ var walks_list = [
 	{
 		user: 'Julie Huang', // reference
 		userName: 'JuhjuhJulie',
-	  usersFavorited: ['Angelina Jolie', 'Beyonce', 'Mandy Moore', 'Pharrel Williams', 'Jeff Lien'], // reference
+	  usersFavorited: ['Angelina Jolie', 'Beyonce', 'Mandy Moore', 'Pharrell Williams', 'Jeff Lien'], // reference
 	  rating: 5,
 		title: 'Walkin\' to A Rockin\' View',
 		content: 'There\'s a walk I always take people on whenever they\'re sad. It\'s pretty successful at cheering people up because the view at the end of the walk is so beautiful and no one really knows about it. You can see the Golden Gate Bridge, Alcatraz, the Bay Bridge, as well as some beautiful mansions. Fog or shine, the windy walk provides a good amount of time and airspace to talk about anything on peoples\'s minds. The walk begins behind Ghiradelli and up toward Coit Tower. You then make a left at the fork and continue walking all the way up until you see another fork in the road. From here, you make a right-- it should look like you are going into a dense forest-- but you\'ll find out soon enough, there is a nice path beyond the trees. At the end of the path, you should see the view I mentioned at the start of this post. Enjoy!',
@@ -160,7 +160,7 @@ var walks_list = [
 	{
 		user: 'Jeff Lien', // reference
 		userName: 'ALi3n626',
-	  usersFavorited: ['Julie Huang', 'Angelina Jolie', 'Mariah Carey', 'Pharrel Williams', 'Emma Watson'], // reference
+	  usersFavorited: ['Julie Huang', 'Angelina Jolie', 'Mariah Carey', 'Pharrell Williams', 'Emma Watson'], // reference
 	  rating: 5,
 		title: 'It\'s Fun Walking Up These Stairs',
 		content: 'I have been on this exercise craze for the past several weeks just because I want to look good this summer. Going to the gym hasn\'t been extremely motivating so I have been trying out different locations in the Bay Area to exercise at. I have really tried out all the lakes and parks in the Bay Area, and the best ones have some stairs to run up and down on. Stairs are a great source of cardio and is also great for your glutes. So, onto the real walk of interest: my favorite place to walk/exercise on stairs is right across Lake Meritt. There is a fountain in front of the stairs-- so you can\'t miss it.',
@@ -172,7 +172,7 @@ var walks_list = [
 		imageURL:''
 	},
 	{
-		user: 'Pharrel Williams', // reference
+		user: 'Pharrell Williams', // reference
 		userName: 'sk8boardP',
 	  usersFavorited: ['Jeff Lien', 'Shane West', 'Julie Huang', 'Mariah Carey', 'Beyonce', 'Jay-Z', 'Emma Watson'], // reference
 	  rating: 5,
@@ -183,7 +183,7 @@ var walks_list = [
 		important: 'yes',
 	  archive: false,
 	  private: false,
-		imageURL:''
+		imageURL:'https://a2-images.myspacecdn.com/images03/35/341a21c067cf4262a3fff6a95d7fb185/300x300.jpg'
 	}
 ];
 
