@@ -1,5 +1,6 @@
 import React, {Component} from 'react'
 import { firebase, auth } from '../utils/firebase';
+import '../index.css';
 
 class Jumbotron extends Component {
   constructor(props) {

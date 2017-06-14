@@ -4,7 +4,7 @@ class Walk extends Component {
 	render() {
 
 		let formattedDate = this.props.walk.dateCreated.split("T")[0];
-		let truncatedContent = this.props.walk.content.substring(0, 350) + '...';
+		let truncatedContent = this.props.walk.content.substring(0, 500) + '...';
 		let walkLink = `/users/${this.props.walk.user}/walks/${this.props.walk._id}`
 		console.log('walk props', this.props.walk)
 		return(
@@ -17,8 +17,8 @@ class Walk extends Component {
 				<div className="walkSection col-sm-12 col-md-9 col-lg-9">
 					<h1 className="walkTitle">{this.props.walk.title}</h1>
 					<p className="walkContent">{truncatedContent}</p>
-					<h5><a href={walkLink}>Read more...</a></h5>
-					<h6 className="walkDate">Posted on: {formattedDate}</h6>
+					<h5 className="pull-right"><a className="walkLink" href={walkLink}>Read more...</a></h5>
+					<h6 className="walkDate pull-right">Posted on: {formattedDate}</h6>
 				</div>
 			</div>
 		)

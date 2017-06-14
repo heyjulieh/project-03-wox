@@ -22,7 +22,7 @@ class WalkDetailContainer extends Component {
 	loadWalkFromServer() {
 		$.ajax({
 			method: 'GET',
-			url: `http://localhost:3000/api/users/${this.props.routeParams.userId}/walks/${this.props.routeParams.walkId}`
+			url: `http://localhost:3000/api/users/${this.props.routeParams.userId}/walks}`
 		})
 		.then((res) => {
 			console.log(this.props.routeParams, 'route params')

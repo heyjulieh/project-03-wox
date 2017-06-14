@@ -1,9 +1,13 @@
 import React, {Component} from 'react'
+import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 
 class WalkForm extends Component {
+
  constructor(props) {
    super(props);
    this.state = {
+     modal: false,
+     backdrop: false,
      images: '',
      userName: '',
      title: '',
@@ -12,9 +16,17 @@ class WalkForm extends Component {
      userID: '',
      location: ''
    };
+   this.toggle = this.toggle.bind(this);
    this.handleInputChange = this.handleInputChange.bind(this);
    this.handleNewWalkSubmit = this.handleNewWalkSubmit.bind(this);
  }
+
+ toggle() {
+    this.setState({
+      modal: !this.state.modal
+    });
+    console.log('toggled');
+  }
 
  handleInputChange(e) {
 
@@ -74,70 +86,82 @@ class WalkForm extends Component {
    });
 
    console.log('logging this.state: ', this.state);
- }
+ };
+
 
  render() {
    return (
-     <div className=" walk-form container">
-      <div className="form-group row">
-      <h3 className="formheader">Add Your Walk</h3>
-       <form className="walkList-form" onSubmit={ this.handleNewWalkSubmit }>
-           <input
-             className='form-control'
-             type='text'
-             name='images'
-             placeholder='Link to Images...'
-             value={ this.state.images }
-             onChange={ this.handleInputChange } /><br></br>
-           <input
-             className='form-control'
-             type='text'
-             name='user'
-             placeholder='Enter your Name...'
-             value={ this.state.userName }
-             onChange={ this.handleInputChange } /><br></br>
-           <input
-             className='form-control'
-             type='text'
-             name='title'
-             placeholder='Choose a Title...'
-             value={ this.state.title }
-             onChange={ this.handleInputChange } /><br></br>
-           <textarea
-             className='form-control'
-             rows='8'
-             type='textarea'
-             name='content'
-             placeholder='Write About Your Walk...'
-             value={ this.state.content }
-             onChange={ this.handleInputChange } /><br></br>
-           <input
-             className='form-control'
-             type='hidden'
-             name='userID'
-             placeholder='firebase userID'
-             value={ this.state.userID }
-             onChange={ this.handleInputChange } />
-           <input
-             className='form-control'
-             type='date'
-             name='dateCreated'
-             value={ this.state.dateCreated}
-             onChange={ this.handleInputChange } /><br></br>
-           <input
-             className='form-control'
-             type='text'
-             name='location'
-             placeholder='Location of Walk...'
-             onChange={ this.handleInputChange } /><br></br>
-           <button
-             type='submit'
-             className='btn btn-primary'
-             value='Walk'>Submit</button>
-       </form>
-      </div>
+     <div>
+       <Button className="add-walk" onClick={this.toggle}>
+         + Your Walk
+       </Button>
+      <Modal isOpen={this.state.modal} toggle={this.toggle} className="walk-modal">
+         <ModalHeader toggle={this.toggle}>Add Your Walk</ModalHeader>
+         <ModalBody>
+           <div className=" walk-form container">
+            <div className= "row">
+             <form className="walkList-form" onSubmit={ this.handleNewWalkSubmit }>
+               <input
+                 className='form-control'
+                 type='text'
+                 name='images'
+                 placeholder='Link to Images...'
+                 value={ this.state.images }
+                 onChange={ this.handleInputChange } /><br></br>
+               <input
+                 className='form-control'
+                 type='text'
+                 name='user'
+                 placeholder='Enter your Name...'
+                 value={ this.state.userName }
+                 onChange={ this.handleInputChange } /><br></br>
+               <input
+                 className='form-control'
+                 type='text'
+                 name='title'
+                 placeholder='Choose a Title...'
+                 value={ this.state.title }
+                 onChange={ this.handleInputChange } /><br></br>
+               <textarea
+                 className='form-control'
+                 rows='8'
+                 type='textarea'
+                 name='content'
+                 placeholder='Write About Your Walk...'
+                 value={ this.state.content }
+                 onChange={ this.handleInputChange } /><br></br>
+               <input
+                 className='form-control'
+                 type='hidden'
+                 name='userID'
+                 placeholder='firebase userID'
+                 value={ this.state.userID }
+                 onChange={ this.handleInputChange } />
+               <input
+                 className='form-control'
+                 type='date'
+                 name='dateCreated'
+                 value={ this.state.dateCreated}
+                 onChange={ this.handleInputChange } /><br></br>
+               <input
+                 className='form-control'
+                 type='text'
+                 name='location'
+                 placeholder='Location of Walk...'
+                 onChange={ this.handleInputChange } /><br></br>
+                 <button
+                   type='submit'
+                   className='btn btn-primary'
+                   value='Walk'
+                   onClick={this.toggle}>Submit</button>
+                <Button color="secondary" onClick={this.toggle}>Cancel</Button>
+             </form>
+            </div>
+          </div>
+        </ModalBody>
+      </Modal>
     </div>
-   )
+  )
  }
 }
 

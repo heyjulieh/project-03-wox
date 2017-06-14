@@ -92,7 +92,7 @@ class MessageForm extends Component {
              className='form-control'
              type='hidden'
              name='userSender'
-             value={ this.state.userSender } />
+             value={ this.state.userSender }
              onChange={ this.handleInputChange } />
            <input
              className='form-control'

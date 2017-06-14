@@ -10,7 +10,7 @@ class UserContainer extends Component {
 			user: []
 		}
 
-		this.loadPostFromServer = this.loadUserFromServer.bind(this);
+		this.loadUserFromServer = this.loadUserFromServer.bind(this);
 		this.handleUserUpdate = this.handleUserUpdate.bind(this);
 		this.handleUserDelete = this.handleUserDelete.bind(this);
 	}
@@ -29,7 +29,7 @@ class UserContainer extends Component {
 
 	}
 
-	handlePostDelete(targetUser) {
+	handleUserDelete(targetUser) {
 		$.ajax({
 			method: 'DELETE',
 			url: `http://localhost:3000/api/users/${this.props.routeParams.userId}`,
@@ -63,7 +63,7 @@ class UserContainer extends Component {
 		return(
 
 			<User
-				user={ this.state.post }
+				user={ this.state.walk }
 				onUserUpdate={this.handleUserUpdate}
 				onUserDelete={this.handleUserDelete}
 			/>

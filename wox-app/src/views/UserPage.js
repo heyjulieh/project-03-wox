@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import '../index.css';
 import Jumbotron from '../components/Jumbotron';
 import Nav from '../components/Nav';
-import LandingContent from '../components/LandingContent';
+import UserContainer from '../containers/UserContainer';
 import Footer from '../components/Footer';
 
 class UserPage extends Component {
@@ -13,7 +13,7 @@ class UserPage extends Component {
         <div className="userpage">
           <Jumbotron />
           <Nav />
-          <LandingContent />
+          <UserContainer />
           <Footer />
         </div>
 

@@ -10,6 +10,7 @@ class WalkList extends Component {
 					key={walk._id}
 					uniqueId={[walk._id]}
 					user={[walk.userName]}
+					createdDate={[walk.date]}
 					walk={walk}
 					className="walkCard" />
 			)
