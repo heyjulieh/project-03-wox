@@ -22,6 +22,7 @@ class WalksPage extends Component {
           <Jumbotron
             onGetUserData={this.getUserData.bind(this)}/>
           <Nav />
+          <h1>Explore Walks</h1>
           <WalkContainer
             routeParams={this.props.params}/>
           <Footer />

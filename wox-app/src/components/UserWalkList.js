@@ -1,27 +1,24 @@
 import React, {Component} from 'react'
-import Walk from './Walk'
+import UserWalk from './UserWalk'
 
-class WalkList extends Component {
+class UserWalkList extends Component {
 
-	render() {
+  render() {
 		let walksArray = this.props.walks.map( (walk) => {
 			return (
 				<Walk
 					key={walk._id}
 					uniqueId={[walk._id]}
 					user={[walk.userName]}
-					dateCreated={[walk.dateCreated]}
-					location={[walk.location]}
-					content={[walk.content]}
+					createdDate={[walk.date]}
 					walk={walk}
-					className="walkCard"
-					onWalkDelete={this.props.onWalkDelete}
-					onWalkUpdate={this.props.onWalkUpdate}/>
+					className="walkCard" />
 			)
 		})
 
 		return(
 			<div className="walksList container">
+				<h1 className="walksList">Explore Walks</h1>
 				<div className="row">
 					{walksArray}
 				</div>
@@ -30,4 +27,4 @@ class WalkList extends Component {
 	}
 }
 
-export default WalkList;
+export default UserWalkList;

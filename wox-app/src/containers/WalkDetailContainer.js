@@ -41,7 +41,7 @@ class WalkDetailContainer extends Component {
 		.then((res) => {
 			console.log('Walk deleted', res)
 		})
-		window.location.href=`http://localhost:3001/users/${this.props.routeParams.userId}`
+		window.location.href=`http://localhost:5000/users/${this.props.routeParams.userId}`
 	}
 
 	handleWalkUpdate(targetWalk) {

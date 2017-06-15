@@ -41,7 +41,7 @@ var users_list = [
 		phoneNumber: '(555)168-0008',
 		location: 'Oakland, CA',
 		hometown: 'Los Angeles, CA',
-		imgUrl: '',
+		imgUrl: 'https://scontent-lga3-1.xx.fbcdn.net/v/t1.0-9/10252120_10102453722706881_258019271_n.jpg?oh=e2d718ffbb9b514c10759e2c2ea54322&oe=59A2AE9F',
 		birthday: '12/07/1987',
 		gender: 'Female',
 		status: 'Taken',
@@ -57,7 +57,7 @@ var users_list = [
 		phoneNumber: '(555)111-0908',
 		location: 'Oakland, CA',
 		hometown: 'Diamond Bar, CA',
-		imgUrl: '',
+		imgUrl: 'https://scontent-lga3-1.xx.fbcdn.net/v/t1.0-9/10906368_10103182519123021_4433497496563599244_n.jpg?oh=80268f9554561b76e5375226c12ba2d0&oe=59E8E4F8',
 		birthday: '11/08/1988',
 		gender: 'Male',
 		status: 'Taken',
@@ -73,7 +73,7 @@ var users_list = [
 		phoneNumber: '(555)100-5000',
 		location: 'San Francisco, CA',
 		hometown: 'Nashua, NH',
-		imgUrl: '',
+		imgUrl: 'https://www.google.com/url?sa=i&rct=j&q=&esrc=s&source=images&cd=&ved=0ahUKEwjugaTP873UAhVJ62MKHZtGB7wQjBwIBA&url=http%3A%2F%2Fwww.eventim.co.uk%2Fobj%2Fmedia%2FUK-eventim%2Fgalery%2F222x222%2Fm%2Fmariah-carey-tickets.jpg&psig=AFQjCNEXvn-NRjTUG1aXz7m1kAaohaV9kQ&ust=1497549126421788',
 		birthday: '03/27/1969',
 		gender: 'Female',
 		status: 'Single',
@@ -89,7 +89,7 @@ var users_list = [
 		phoneNumber: '(555)420-4200',
 		location: 'Oakland, CA',
 		hometown: 'Virginia Beach, VA',
-		imgUrl: '',
+		imgUrl: 'https://a2-images.myspacecdn.com/images03/35/341a21c067cf4262a3fff6a95d7fb185/300x300.jpg',
 		birthday: '03/27/1969',
 		gender: 'Female',
 		status: 'Taken',
@@ -103,7 +103,7 @@ var users_list = [
 var walks_list = [
 	{
 		user: 'Shane West', // reference
-		userName: 'Hotrebel1',
+		userName: 'DrWest1',
 	  usersFavorited: ['Shane West', 'Mandy Moore', 'Julie Huang', 'Pharrell Williams', 'Beyonce', 'Jay-Z'], // reference
 	  rating: 5,
 		title: 'A Walk to Remember',
@@ -113,7 +113,7 @@ var walks_list = [
 		important: 'yes',
 	  archive: false,
 	  private: false,
-		images: []
+		images: ['http://www.spacesarchives.org/uploads/2013/11/12/albany-bulb-4-environment_slide-605-445.jpg', 'http://ww4.hdnux.com/photos/23/53/61/5160055/3/920x920.jpg']
 	},
 	{
 		user: 'Mandy Moore', // reference
@@ -127,7 +127,7 @@ var walks_list = [
 		important: 'yes',
 	  archive: false,
 	  private: false,
-		images: []
+		images: ['http://www.sftodo.com/images/activities/moma/embarcadero-san-francisco-v2.jpg', 'http://baycityguide.com/media/00PU000000GpMRuMAN/SOMARedArrow(SS)-1500x872.jpg', 'http://spinlister-blog.s3.amazonaws.com/2016/08/embarcadero-sf-2.jpg']
 	},
 	{
 		user: 'Mariah Carey', // reference
@@ -141,7 +141,7 @@ var walks_list = [
 		important: 'no',
 	  archive: false,
 	  private: false,
-		images: []
+		images: ['https://upload.wikimedia.org/wikipedia/commons/4/47/Presidio_sf_parading_ground.jpg', 'https://images.trvl-media.com/media/content/shared/images/travelguides/destination/178305/Presidio-Military-Reservation-22446.jpg', 'http://baycityguide.com/media/00PU000000EkCZDMA3/Presidio-Buildings-Bridge-1500x872.jpg']
 	},
 	{
 		user: 'Julie Huang', // reference
@@ -155,7 +155,7 @@ var walks_list = [
 		important: 'yes',
 	  archive: false,
 	  private: false,
-		imageURL:''
+		images:['https://ruthkrishnan.com/wp-content/uploads/2015/08/Coit-Tower-Sunset-Hue.jpg', 'https://media-cdn.tripadvisor.com/media/photo-s/00/18/a5/1b/coit-tower.jpg', 'https://i.ytimg.com/vi/NoIjdooupDw/maxresdefault.jpg']
 	},
 	{
 		user: 'Jeff Lien', // reference
@@ -169,11 +169,11 @@ var walks_list = [
 		important: 'yes',
 	  archive: false,
 	  private: false,
-		imageURL:''
+		images:['http://www.visitcalifornia.com/sites/default/files/styles/welcome_image/public/VCW_D_oakland_T9_20140729_Lake%20Merritt_07_1280x642.jpg', 'https://i.ytimg.com/vi/8kIQ9KPD2kQ/maxresdefault.jpg', 'http://static1.squarespace.com/static/5510adcfe4b0503efc1b8d40/553746f8e4b0e6e6adf5cffa/55374747e4b0e6e6adf5d9f7/1429686087468/DSC_1961.jpg?format=original']
 	},
 	{
 		user: 'Pharrell Williams', // reference
-		userName: 'sk8boardP',
+		userName: 'Sk8boardP',
 	  usersFavorited: ['Jeff Lien', 'Shane West', 'Julie Huang', 'Mariah Carey', 'Beyonce', 'Jay-Z', 'Emma Watson'], // reference
 	  rating: 5,
 		title: 'Happy Walking',
@@ -183,7 +183,7 @@ var walks_list = [
 		important: 'yes',
 	  archive: false,
 	  private: false,
-		imageURL:'https://a2-images.myspacecdn.com/images03/35/341a21c067cf4262a3fff6a95d7fb185/300x300.jpg'
+		images:['https://s-media-cache-ak0.pinimg.com/originals/d3/a5/b9/d3a5b933f1e9f9c3691f2187e04c2653.jpg', 'https://s-media-cache-ak0.pinimg.com/originals/d6/01/b8/d601b88afca2d1ad471f99f5cc847867.jpg']
 	}
 ];
 

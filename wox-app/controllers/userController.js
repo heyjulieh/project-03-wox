@@ -7,15 +7,16 @@ function index(req, res) {
 	});
 };
 
-// Shows one user
-function showUsers(req, res) {
-	var userId = req.params.userId;
-	db.User.findById(userId, function(err, foundUser) {
+// Shows one user in /api/users/:userName route
+function showOne(req, res) {
+	var user = req.params.userName;
+	db.User.find({userName:user}, function(err, foundUser) {
 		res.json(foundUser);
 	});
+	console.log('user is:', req.params.userName);
 };
 
 module.exports = {
 	index: index,
-	showUsers: showUsers
+	showOne: showOne
 };

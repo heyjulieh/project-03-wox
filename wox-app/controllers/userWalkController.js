@@ -9,10 +9,11 @@ function index(req, res) {
 
 // Shows all walks under a specific user
 function showWalks(req, res) {
-	var user = req.params.userId
-	db.Walks.find({user}, function(err, showAllWalks) {
+	var user = req.params.userName
+	db.Walks.find({userName:user}, function(err, showAllWalks) {
 		res.json(showAllWalks);
 	});
+	console.log('req.params is:', req.params);
 };
 
 // Shows a specific walk for a specific user
@@ -23,32 +24,30 @@ function showOne(req, res) {
     });
 };
 
-// Creates a specific walk in a specific user
+// Creates a specific walk form-control a specific user
 function create(req, res) {
 	console.log('req.body: ', req.body)
-	console.log('req.body.user is: ', req.body.user)
+	console.log('req.body.user is: ', req.body.userName)
 
 		var newWalk = new db.Walks({ //need to edit this
 			images: req.body.images,
-			user: req.body.user,
+			userName: req.body.userName,
 			location: req.body.location,
 			title: req.body.title,
 			content: req.body.content,
 			dateCreated: req.body.dateCreated,
 			userID: req.body.userID
 		});
-
-		db.User.findOne({user: req.body.user}, function(err, user) {
-
+		var user = req.params.userName
+		db.Walks.find({userName:user}, function(err, userName) {
 			// user returns null. Why? Shouldn't this be a matching db.User object, or at least an ID
-
 			if (err) {
 
 				console.log(err.walk);
 
-			} else if (req.body.user === null) {
+			} else if (req.body.userName === null) {
 
-					console.log('walk create error: ${req.body.user} not found');
+					console.log('walk create error: ${req.body.userName} not found');
 
 			} else {
 
@@ -79,12 +78,10 @@ function destroy(req, res) {
 // Updates a specific walk in a specific user
 function update(req, res) {
 
-
-	db.Walks.findOne({user: req.params.userId, _id: req.params.walkId}, function (err, updateWalk) {
+	db.Walks.find({user: req.params.userId, _id: req.params.walkId}, function (err, updateWalk) {
 
 		console.log('updateWalk is: ', updateWalk)
 		// updateWalk = req.body;
-
 
 		updateWalk.user = req.body.user;
 		updateWalk.userName = req.body.userName;

@@ -11,7 +11,7 @@ class WalkForm extends Component {
      userName: '',
      title: '',
      content: '',
-     dateCreated: Date,
+     dateCreated: Date.now(),
      userID: '',
      location: ''
    };
@@ -97,7 +97,7 @@ class WalkForm extends Component {
       <Modal fade={false} isOpen={this.state.modal} toggle={this.toggle} className="walk-modal">
          <ModalHeader toggle={this.toggle}>Add Your Walk</ModalHeader>
          <ModalBody>
-           <div className=" walk-form container">
+           <div className="walk-form container">
             <div className= "row">
              <form className="walkList-form" onSubmit={ this.handleNewWalkSubmit }>
                <input
@@ -110,8 +110,8 @@ class WalkForm extends Component {
                <input
                  className='form-control'
                  type='text'
-                 name='user'
-                 placeholder='Enter your Name...'
+                 name='userName'
+                 placeholder='Enter your Username...'
                  value={ this.state.userName }
                  onChange={ this.handleInputChange } /><br></br>
                <input
@@ -151,9 +151,8 @@ class WalkForm extends Component {
                  <button
                    type='submit'
                    className='btn btn-primary'
-                   value='Walk'
-                   onClick={this.toggle}>Submit</button>
-                <Button color="secondary" onClick={this.toggle}>Cancel</Button>
+                   value='Walk'>Submit</button>
+                <Button color="secondary" onClick={this.toggle}>Close</Button>
              </form>
             </div>
           </div>

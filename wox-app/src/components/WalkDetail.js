@@ -1,4 +1,6 @@
 import React, {Component} from 'react'
+import Walk from './Walk'
+import WalkList from './WalkList'
 
 
 class WalkDetail extends Component {
@@ -6,11 +8,12 @@ class WalkDetail extends Component {
 	constructor(props) {
 		super(props)
 		this.state={
-			  images: '',
+			  images: [],
 	    	user: '',
 	    	location: '',
 	    	title: '',
 	    	content: '',
+				dateCreate: Date,
 				editMode: false
 		}
 		this.updateWalk = this.updateWalk.bind(this);
@@ -46,9 +49,8 @@ class WalkDetail extends Component {
     let location = this.state.location.trim();
     let title = this.state.title.trim();
     let content = this.state.content.trim();
-    if (!images || !user || !location || !title || !content) {
-      return;
-		}
+		let dateCreated = this.state.dateCreated.trim();
+
 		this.props.onWalkUpdate(targetWalk);
 		// need to include walk as a param above
 		console.log('made it to handleUpdateWalk')
@@ -58,7 +60,8 @@ class WalkDetail extends Component {
     	user: '',
     	location: '',
     	title: '',
-    	content: ''
+    	content: '',
+			dateCreated: '',
 		})
 
 	}
@@ -95,22 +98,6 @@ class WalkDetail extends Component {
 		return(
 
 			<div>
-  			<div className="walkCardDetail col-sm-12 col-md-12 col-lg-12">
-  				<div className="userSection col-sm-12 col-md-12 col-lg-3">
-  					<img className="walkImage img-circle img-responsive center-block" src={this.props.walk.images}></img>
-  					<h3 className="walkUser">{this.props.walk.user}</h3>
-  				</div>
-  				<div className="walkSection col-sm-12 col-md-12 col-lg-9">
-  					<h1 className="walkTitle">{this.props.walk.title}</h1>
-  					<p className="walkContent">{this.props.walk.content}</p>
-  					<h6 className="walkDate">Walked on: {this.props.walk.dateCreated}</h6>
-
-  					<button className='btn btn-default' onClick={this.updateWalk}><span className="glyphicon glyphicon-pencil" aria-hidden="true">EDIT</span></button>
-  					<button className='btn btn-warning' onClick={this.deleteWalk}><span className="glyphicon glyphicon-trash" aria-hidden="true"></span></button>
-  				</div>
-  			</div>
-			<div>
-
 					 { (this.state.editMode)
 						 ? (<div className="container">
 			        		<div className="form-group row">
@@ -163,7 +150,6 @@ class WalkDetail extends Component {
 						</div>)
 					: null}
 				</div>
-			</div>
 		)
 	}
 

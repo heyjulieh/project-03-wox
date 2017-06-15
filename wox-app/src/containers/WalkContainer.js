@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
 import $ from 'jquery-ajax';
 
+import Walk from '../components/Walk'
 import WalkList from '../components/WalkList';
-// import Walk from '../components/Walk';
 import WalkForm from '../components/WalkForm'
 
 class WalkContainer extends Component {
@@ -20,9 +20,8 @@ class WalkContainer extends Component {
 
 		this.loadWalksFromServer = this.loadWalksFromServer.bind(this);
 		this.handleNewWalkSubmit = this.handleNewWalkSubmit.bind(this);
-		//this.handleWalkSubmit = this.handleWalkSubmit.bind(this);
-		// this.handleWalkDelete = this.handleWalkDelete.bind(this);
-		// this.handleWalkUpdate = this.handleWalkUpdate.bind(this);
+		this.handleWalkDelete = this.handleWalkDelete.bind(this);
+		this.handleWalkUpdate = this.handleWalkUpdate.bind(this);
 
 	}
 
@@ -39,7 +38,7 @@ class WalkContainer extends Component {
 
 	handleNewWalkSubmit(walk){
 
-		walk.user = this.props.routeParams.userName;
+		walk.userName = this.props.routeParams.userName;
 
 		console.log('reached handleNewWalkSubmit');
 		let walks = this.state.walks;
@@ -52,7 +51,7 @@ class WalkContainer extends Component {
 
 		$.ajax({
 			method: 'POST',
-			url: `http://localhost:3000/api/users/${this.props.routeParams.userId}/walks/`,
+			url: `http://localhost:3000/api/users/${this.props.routeParams.userName}/walks/`,
 			data: walk
 		})
 		.then(res => {
@@ -63,32 +62,30 @@ class WalkContainer extends Component {
 		});
 	}
 
-// handleWalkDelete(id){
-//     $.ajax({
-//       method: 'DELETE',
-//       url: 'http://localhost:3000/api/users/:userId/walks/:walkId'
-//
-// 	    })
-// 	    .then((res) => {
-// 	      console.log('Walk deleted');
-// 	    }, (err) => {
-// 	      console.error(err);
-// 	    });
-// 	}
-//
-//     handleWalkUpdate(id, walk) {
-//     //sends the walks id and new text to our api
-//     $.ajax({
-//       method: 'PUT',
-//       url:'http://localhost:3000/api/users/:userId/walks/:walkId' ,
-//       data: walk
-//     })
-//     .then(res => {
-//       console.log(res);
-//     }, err => {
-//       console.log(err);
-//     })
-//   }
+handleWalkDelete(targetWalk){
+    $.ajax({
+      method: 'DELETE',
+      url: `http://localhost:3000/api/users/${this.props.routeParams.userName}/${this.props.routeParams.walkId}`,
+			data: targetWalk
+	    })
+	    .then((res) => {
+	      console.log('Walk deleted');
+	    })
+			window.location.href=`http://localhost:5000/users/${this.props.routeParams.userName}`
+	}
+
+  handleWalkUpdate(targetWalk) {
+    //sends the walks id and new text to our api
+    $.ajax({
+      method: 'PUT',
+      url: `http://localhost:3000/api/users/${this.props.routeParams.userName}/${this.props.routeParams.walkId}`,
+      data: targetWalk
+    })
+    .then(res => {
+      console.log(res);
+			this.setState({walk: targetWalk})
+    })
+  }
 
   componentDidMount() {
     this.loadWalksFromServer();
@@ -111,9 +108,7 @@ class WalkContainer extends Component {
 				<WalkList
 					userName={targetWalk[0]}
 					walks={this.state.walks}
-					// onWalkDelete={this.handleWalkDelete}
-					// onWalkUpdate={this.handleWalkUpdate}
-					/>
+					 />
 				<WalkForm
        		onWalkFormSubmit={this.handleNewWalkSubmit} />
       </div>
