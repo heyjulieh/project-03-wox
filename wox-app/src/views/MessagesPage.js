@@ -17,25 +17,26 @@ class MessagesPage extends Component {
   }
 
   render() {
-    if(this.state.currentUser){
+    {/*if(this.state.currentUser){*/}
       return (
         <div className="messagepage">
           <Jumbotron
             onGetUserData={this.getUserData.bind(this)}/>
           <Nav />
+          <h1>Your Messages</h1>
           <MessageContainer
             routeParams={this.props.params}/>
           <Footer />
         </div>
       );
-    }
-    else {
+    {/*}}
+    {else {
       return (
         <div>
           <h3>"You do not have access to this page. Please log in."</h3>
         </div>
       )
-    }
+    } */}
   }
 }
 

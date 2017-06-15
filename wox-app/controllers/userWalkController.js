@@ -71,6 +71,7 @@ function destroy(req, res) {
 	db.Walks.remove({_id: req.params.walkId}, function (err, foundWalk) {
 			if (err)
 				res.send(err);
+				console.log(req.params.walkId)
 		});
 };
 
@@ -78,14 +79,15 @@ function destroy(req, res) {
 // Updates a specific walk in a specific user
 function update(req, res) {
 
-	db.Walks.find({user: req.params.userId, _id: req.params.walkId}, function (err, updateWalk) {
+	db.Walks.find({user: req.params.userName, _id: req.params.walkId}, function (err, updateWalk) {
 
 		console.log('updateWalk is: ', updateWalk)
 		// updateWalk = req.body;
 
 		updateWalk.user = req.body.user;
 		updateWalk.userName = req.body.userName;
-		updateWalk.images = req.body.images[0];
+		updateWalk.location = req.body.location;
+		updateWalk.images = req.body.images;
 		updateWalk.title = req.body.title;
 		updateWalk.content = req.body.content;
 		updateWalk.userId = req.params.userId;

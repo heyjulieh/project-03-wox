@@ -6,6 +6,7 @@ class Walk extends Component {
 		this.state={
 			images: [],
 			user: '',
+			userName: '',
 			location: '',
 			title: '',
 			content: '',
@@ -24,8 +25,8 @@ deleteWalk(e) {
 	var result = window.confirm("Are you sure you want to delete this walk?");
 	if (result) {
 		this.props.onWalkDelete(targetWalk);
-		}
 		console.log('this state is', this.state);
+		}
 }
 
 updateWalk(e) {
@@ -41,6 +42,7 @@ handleWalkUpdate(e) {
 	// let id = this.props.uniqueID;
 	let images = this.state.images.trim();
 	let user = this.state.user.trim();
+	let userName = this.state.userName.trim();
 	let location = this.state.location.trim();
 	let title = this.state.title.trim();
 	let content = this.state.content.trim();
@@ -50,8 +52,9 @@ handleWalkUpdate(e) {
 	console.log('made it to handleUpdateWalk')
 	this.setState({
 		editMode: !this.state.editMode,
-		images: '',
+		images: [],
 		user: '',
+		userName: '',
 		location: '',
 		title: '',
 		content: '',
@@ -65,8 +68,8 @@ handleInputChange(e) {
 		this.setState({ images: e.target.value });
 	}
 
-	if (e.target.name === 'user') {
-		this.setState({ user: e.target.value });
+	if (e.target.name === 'userName') {
+		this.setState({ userName: e.target.value });
 	}
 
 	if (e.target.name === 'location') {
@@ -93,7 +96,7 @@ handleInputChange(e) {
 
 			<div className="walkCard col-sm-12 col-md-12 col-lg-12">
 				<div className="userSection col-sm-12 col-md-3 col-lg-3">
-					<img className="walkImage img-responsive" src={this.props.walk.images[0]}></img>
+					<img className="walkImage" src={this.props.walk.images[0]}></img>
 				</div>
 				<div className="walkSection col-sm-12 col-md-9 col-lg-9">
 					<h1 className="walkTitle">{this.props.walk.title}</h1>
@@ -102,10 +105,8 @@ handleInputChange(e) {
 					<p className="walkContent">{truncatedContent}</p>
 					<h5 className="pull-right"><a className="walkLink" href={walkLink}>Read more...</a></h5>
 					<h6 className="walkDate pull-right">Posted on: {formattedDate}</h6>
-					<button className='btn btn-default' onClick={this.updateWalk}><span className="glyphicon glyphicon-pencil" aria-hidden="true"></span></button>
-					<button className='btn btn-warning' onClick={this.deleteWalk}><span className="glyphicon glyphicon-trash" aria-hidden="true"></span></button>
-				</div>
-				<div>
+					<button className='edit-span' onClick={this.updateWalk}><span className="glyphicon glyphicon-pencil" aria-hidden="true"></span></button>
+					<button className='delete-span' onClick={this.deleteWalk}><span className="glyphicon glyphicon-trash" aria-hidden="true"></span></button>
 						 { (this.state.editMode)
 							 ? (<div className="container">
 				        		<div className="form-group row">
@@ -113,28 +114,29 @@ handleInputChange(e) {
 						 	        <input
 												className='form-control'
 						 	          type='text'
-						 	          name='images'
 						 	          placeholder='Links to images...'
+												name='images'
 						 	          value={ this.state.images}
 						 	          onChange={ this.handleInputChange } /><br></br>
 						 	        <input
 												className='form-control'
-						 	          type='hidden'
-						 	          name='user'
-						 	          value={ this.state.user }
-						 	          onChange={ this.handleInputChange } />
+						 	          type='text'
+												placeholder='Enter Your Username...'
+												name='userName'
+						 	          value={ this.state.userName }
+						 	          onChange={ this.handleInputChange } /><br></br>
 						 	        <input
 												className='form-control'
 						 	          type='text'
-						 	          name='location'
 						 	          placeholder='Location of Walk ...'
+												name='location'
 						 	          value={ this.state.location }
 						 	          onChange={ this.handleInputChange } /><br></br>
 						 	        <input
 												className='form-control'
 						 	          type='text'
-						 	          name='title'
 						 	          placeholder='Choose a Title...'
+												name='title'
 						 	          value={ this.state.title }
 						 	          onChange={ this.handleInputChange } /><br></br>
 						 	        <textarea
@@ -150,9 +152,10 @@ handleInputChange(e) {
 						 	          type='hidden'
 						 	          name='date'
 						 	          value={Date(Date.now())} />
-						 	        <input
+						 	        <button
+												className='update-button'
 						 	          type='submit'
-						 	          value='Save Changes' />
+						 	          value='Save Changes'>save changes</button>
 						 	    </form>
 								</div>
 							</div>)

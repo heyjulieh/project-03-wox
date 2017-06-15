@@ -7,20 +7,13 @@ function index(req, res) {
 	});
 };
 
-// Shows all messages accepted under a specific user
-function showMessagesAccepted(req, res) {
-	var userAcceptor = req.params.userAcceptorId
-	db.Messages.find({userAcceptor}, function(err, showAllMessagesAccepted) {
-		res.json(showAllMessagesAccepted);
+// Shows all messages under a specific user
+function showAllMessages(req, res) {
+	var user = req.params.userName
+	db.Messages.find({userName:user}, function(err, showAllMessages) {
+		res.json(showAllMessages);
 	});
-};
-
-// Shows all messages accepted under a specific user
-function showMessagesSent(req, res) {
-	var userSender = req.params.userSenderId
-	db.Messages.find({userSender}, function(err, showAllMessagesSent) {
-		res.json(showAllMessagesSent);
-	});
+	console.log('req.params is:', req.params);
 };
 
 // Shows a specific message for a specific user
@@ -31,32 +24,30 @@ function showOne(req, res) {
     });
 };
 
-// Creates a specific message for a specific user
+// Creates a specific message form-control a specific user
 function create(req, res) {
 	console.log('req.body: ', req.body)
-	console.log('req.body.userSender is: ', req.body.userSender)
+	console.log('req.body.user is: ', req.body.userName)
 
 		var newMessage = new db.Messages({ //need to edit this
-			userSender: req.body.userSender,
-      userAcceptor: req.body.userAccepter,
+			images: req.body.images,
+			userName: req.body.userName,
+			location: req.body.location,
 			title: req.body.title,
 			content: req.body.content,
-			date: req.body.date,
-			userSenderID: req.body.userSenderID,
-      userAcceptorID: req.body.userAcceptorID
+			dateCreated: req.body.dateCreated,
+			userID: req.body.userID
 		});
-
-		db.UserSender.findOne({user: req.body.userSender}, function(err, user) {
-
+		var user = req.params.userName
+		db.Messages.find({userName:user}, function(err, userName) {
 			// user returns null. Why? Shouldn't this be a matching db.User object, or at least an ID
-
 			if (err) {
 
 				console.log(err.message);
 
-			} else if (req.body.userSender === null) {
+			} else if (req.body.userName === null) {
 
-					console.log('message create error: ${req.body.userSender} not found');
+					console.log('message create error: ${req.body.userName} not found');
 
 			} else {
 
@@ -80,16 +71,42 @@ function destroy(req, res) {
 	db.Messages.remove({_id: req.params.messageId}, function (err, foundMessage) {
 			if (err)
 				res.send(err);
+				console.log(req.params.messageId)
 		});
 };
 
 
+// Updates a specific message in a specific user
+function update(req, res) {
+
+	db.Messages.find({user: req.params.userId, _id: req.params.messageId}, function (err, updateMessage) {
+
+		console.log('updateMessage is: ', updateMessage)
+		// updateMessage = req.body;
+
+		updateMessage.user = req.body.user;
+		updateMessage.userName = req.body.userName;
+		updateMessage.images = req.body.images[0];
+		updateMessage.title = req.body.title;
+		updateMessage.content = req.body.content;
+		updateMessage.userId = req.params.userId;
+
+		updateMessage.save(function(err, updatedMessage) {
+			if (err) {
+				console.log('message save error: ', err);
+			} else {
+				console.log('saved message: ', updatedMessage);
+				res.json(updatedMessage);
+			}
+		});
+	});
+};
 
 module.exports = {
 	index: index,
-	showMessagesSent: showMessagesSent,
-  showMessagesAccepted: showMessagesAccepted,
+	showAllMessages: showAllMessages,
 	create: create,
 	showOne: showOne,
 	destroy: destroy,
+	update: update
 }

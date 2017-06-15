@@ -25,7 +25,7 @@ class UserPage extends Component {
         <Jumbotron
           onGetUserData={this.getUserData.bind(this)}/>
         <Nav />
-        <UserHeader />
+        <h1>{this.props.userName}</h1>
         <UserWalkContainer
           routeParams={this.props.params}/>
         <Footer />

@@ -8,15 +8,16 @@ class WalkList extends Component {
 			return (
 				<Walk
 					key={walk._id}
-					uniqueId={[walk._id]}
+					uniqueId={walk['_id']}
+					onWalkDelete={this.props.onWalkDelete}
+					onWalkUpdate={this.props.onWalkUpdate}
 					user={[walk.userName]}
 					dateCreated={[walk.dateCreated]}
 					location={[walk.location]}
 					content={[walk.content]}
 					walk={walk}
 					className="walkCard"
-					onWalkDelete={this.props.onWalkDelete}
-					onWalkUpdate={this.props.onWalkUpdate}/>
+					/>
 			)
 		})
 

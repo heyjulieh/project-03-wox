@@ -60,30 +60,29 @@ class WalkContainer extends Component {
 			console.error(err);
 			this.setState({walks: walks});
 		});
+		console.log(this.props.routeParams.userName, 'username');
 	}
 
 handleWalkDelete(targetWalk){
     $.ajax({
       method: 'DELETE',
-      url: `http://localhost:3000/api/users/${this.props.routeParams.userName}/${this.props.routeParams.walkId}`,
-			data: targetWalk
+      url: `http://localhost:3000/api/users/${this.props.routeParams.userName}/walks/:walkid`,
 	    })
 	    .then((res) => {
+				console.log('walkid is:', this.props.routeParams);
 	      console.log('Walk deleted');
 	    })
-			window.location.href=`http://localhost:5000/users/${this.props.routeParams.userName}`
 	}
 
   handleWalkUpdate(targetWalk) {
     //sends the walks id and new text to our api
     $.ajax({
       method: 'PUT',
-      url: `http://localhost:3000/api/users/${this.props.routeParams.userName}/${this.props.routeParams.walkId}`,
+      url: `http://localhost:3000/api/users/${this.props.routeParams.userName}/walks/:walkid`,
       data: targetWalk
     })
     .then(res => {
       console.log(res);
-			this.setState({walk: targetWalk})
     })
   }
 
@@ -100,17 +99,21 @@ handleWalkDelete(targetWalk){
 
 		const testWalk = this.state.walks[0]
 
-		console.log('targetWalk is: ', testWalk)
+		console.log('targetWalk is: ', testWalk, targetWalk)
 
 		return(
 
 			<div className="wrapper">
+				<WalkForm
+					userName={targetWalk[0]}
+					walks={this.state.walks}
+					onWalkFormSubmit={this.handleNewWalkSubmit} />
 				<WalkList
 					userName={targetWalk[0]}
 					walks={this.state.walks}
+					onWalkDelete={ this.handleWalkDelete }
+			 		onWalkUpdate={ this.handleWalkUpdate }
 					 />
-				<WalkForm
-       		onWalkFormSubmit={this.handleNewWalkSubmit} />
       </div>
 		)
 	}

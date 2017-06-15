@@ -11,7 +11,7 @@ class Walk extends Component {
 
 			<div className="walkCard col-sm-12 col-md-12 col-lg-12">
 				<div className="userSection col-sm-12 col-md-3 col-lg-3">
-					<img className="walkImage img-circle img-responsive center-block" src={this.props.walk.images[0]}></img>
+					<img className="walkImage" src={this.props.walk.images[0]}></img>
 					<h3 className="walkUser">{this.props.walk.userName}</h3>
 				</div>
 				<div className="walkSection col-sm-12 col-md-9 col-lg-9">

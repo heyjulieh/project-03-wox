@@ -48,6 +48,11 @@ class WalkForm extends Component {
    if (e.target.name === 'dateCreated') {
      this.setState({ dateCreated: e.target.value });
    }
+
+   if (e.target.name === 'location') {
+     this.setState({ location: e.target.value });
+   }
+
      if (e.target.name === 'userID') {
      this.setState({ userID: e.target.value });
    }
@@ -90,9 +95,9 @@ class WalkForm extends Component {
 
  render() {
    return (
-     <div>
+     <div className='add-walk-modal'>
        <Button className="add-walk" onClick={this.toggle}>
-         + Your Walk
+         + Walk
        </Button>
       <Modal fade={false} isOpen={this.state.modal} toggle={this.toggle} className="walk-modal">
          <ModalHeader toggle={this.toggle}>Add Your Walk</ModalHeader>
@@ -101,28 +106,28 @@ class WalkForm extends Component {
             <div className= "row">
              <form className="walkList-form" onSubmit={ this.handleNewWalkSubmit }>
                <input
-                 className='form-control'
+                 className='form-control addWalk'
                  type='text'
                  name='images'
                  placeholder='Link to Images...'
                  value={ this.state.images }
                  onChange={ this.handleInputChange } /><br></br>
                <input
-                 className='form-control'
+                 className='form-control addWalk'
                  type='text'
                  name='userName'
                  placeholder='Enter your Username...'
                  value={ this.state.userName }
                  onChange={ this.handleInputChange } /><br></br>
                <input
-                 className='form-control'
+                 className='form-control addWalk'
                  type='text'
                  name='title'
                  placeholder='Choose a Title...'
                  value={ this.state.title }
                  onChange={ this.handleInputChange } /><br></br>
                <textarea
-                 className='form-control'
+                 className='form-control addWalk'
                  rows='8'
                  type='textarea'
                  name='content'
@@ -130,29 +135,29 @@ class WalkForm extends Component {
                  value={ this.state.content }
                  onChange={ this.handleInputChange } /><br></br>
                <input
-                 className='form-control'
+                 className='form-control addWalk'
                  type='hidden'
                  name='userID'
                  placeholder='firebase userID'
                  value={ this.state.userID }
                  onChange={ this.handleInputChange } />
                <input
-                 className='form-control'
+                 className='form-control addWalk'
                  type='date'
                  name='dateCreated'
                  value={ this.state.dateCreated}
                  onChange={ this.handleInputChange } /><br></br>
                <input
-                 className='form-control'
+                 className='form-control addWalk'
                  type='text'
                  name='location'
                  placeholder='Location of Walk...'
                  onChange={ this.handleInputChange } /><br></br>
                  <button
                    type='submit'
-                   className='btn btn-primary'
+                   className='addwalk-button'
                    value='Walk'>Submit</button>
-                <Button color="secondary" onClick={this.toggle}>Close</Button>
+                <button className='addwalk-button' onClick={this.toggle}>Close</button>
              </form>
             </div>
           </div>
