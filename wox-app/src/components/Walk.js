@@ -107,6 +107,7 @@ handleInputChange(e) {
 					<h6 className="walkDate pull-right">Posted on: {formattedDate}</h6>
 					<button className='edit-span' onClick={this.updateWalk}><span className="glyphicon glyphicon-pencil" aria-hidden="true"></span></button>
 					<button className='delete-span' onClick={this.deleteWalk}><span className="glyphicon glyphicon-trash" aria-hidden="true"></span></button>
+					<div>
 						 { (this.state.editMode)
 							 ? (<div className="container">
 				        		<div className="form-group row">
@@ -160,6 +161,7 @@ handleInputChange(e) {
 								</div>
 							</div>)
 						: null}
+					</div>
 					</div>
 			</div>
 

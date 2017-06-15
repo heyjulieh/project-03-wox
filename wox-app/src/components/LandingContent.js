@@ -14,7 +14,7 @@ class LandingContent extends Component {
                 <a href="/users/CandyMandy"><img className="profile-img" height="180px" src="http://therichest.imgix.net/wp-content/uploads/Mandy-Moore.jpg?auto=format&q=90&lossless=1"></img></a>
                 <div><p className="profile">Meet Mandy</p></div>
               </div>
-              <div className="col col-sm-4 top-story">
+              <div className="col col-sm-3 top-story">
                 <a href="#"><img className="profile-img" height="180px" src="http://infinitysf.org/wp-content/uploads/2013/04/TheEmbarcadero.jpg"></img></a>
                 <div><p className="story">Find Cupid at the Embarcadero</p></div>
               </div>
@@ -34,7 +34,7 @@ class LandingContent extends Component {
                 <a href="/users/Sk8boardP"><img className="profile-img" height="180px" src="https://a2-images.myspacecdn.com/images03/35/341a21c067cf4262a3fff6a95d7fb185/300x300.jpg"></img></a>
                 <div><p className="profile">Meet Pharrell</p></div>
               </div>
-              <div className="col col-sm-4 top-story">
+              <div className="col col-sm-3 top-story">
                 <a href="#"><img className="profile-img" height="180px" src="http://assets.fodors.com/destinations/54483/fountain-getty-villa-los-angeles-california-usa_main.jpg"></img></a>
                 <div><p className="story">Getting Away for the Day at the Getty Villa</p></div>
               </div>
