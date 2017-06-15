@@ -6,8 +6,13 @@ body {
   padding: 0;
 }
 
+html, body {
+  height: 100%;
+  margin: 0;
+}
+
 @media (max-width: 800px) {
-  .log {
+  .login, .logout, .glyphicon-envelope, .message-counter {
     display: none;
   }
 }
@@ -199,4 +204,243 @@ a.footer-logo {
 a.footer-logo:hover {
   color: #7A9BAB;
   text-decoration: none;
+}
+
+/*Walk Page*/
+.wrapper {
+  min-height: 100%;
+
+  /* Equal to height of footer */
+  /* But also accounting for potential margin-bottom of last child */
+  margin-bottom: 50px;
+}
+
+h1.walksList {
+  font-family: 'Sintony', sans-serif;
+  font-size: 24px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #2D4855;
+  margin-bottom: 20px;
+}
+h3.walkUser {
+  font-family: 'Roboto', sans-serif;
+  font-size: 12px;
+  text-align: center;
+}
+h1.walkTitle {
+  font-family: 'Sintony', sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+}
+p.walkContent {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300;
+  margin: 0;
+  padding: 0;
+}
+h6.walkDate {
+  font-family: 'Sintony', sans-serif;
+  font-size: 10px;
+  font-weight: 300;
+  display: inline-block;
+  clear: both;
+  padding-bottom: 10px;
+  margin: auto;
+}
+a.walkLink {
+  display: inline-block;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300;
+  text-align: right;
+  font-size: 12px;
+  color: #7A9BAB;
+}
+a.walkLink:hover {
+  color: white;
+  text-decoration: none;
+}
+.walkSection {
+  background-color: lightgrey;
+  height: 233px;
+}
+
+.walkCard {
+  margin-bottom: 15px;
+}
+
+/*Landing Page*/
+.top-story {
+  text-align: center;
+}
+.
+
+.landing-row {
+  height: 280px;
+  margin: 15px;
+  padding-bottom: 20px;
+  vertical-align: middle;
+  border-bottom: 10px;
+}
+
+.landing-content {
+  padding-top: 50px;
+  padding-bottom: 30px;
+  width: 90%;
+  vertical-align: middle;
+  margin: auto;
+}
+
+p.profile {
+  background-color: lightgrey;
+  padding: 5px;
+  margin-bottom: 25px;
+  display: inline-block;
+  text-align: left;
+  margin-top: -70px;
+  clear: both;
+  z-index: -100;
+  font-family: 'Sintony', sans-serif;
+  text-transform: uppercase;
+  width: 150px;
+  border-top-right-radius: 15px;
+  border-bottom-right-radius: 15px;
+  color: black;
+}
+
+p.story {
+  font-family: 'Sintony', sans-serif;
+  text-transform: uppercase;
+  display: inline-block;
+  background-color: grey;
+  color: white;
+  padding: 5px;
+  margin-top: -70px;
+  border-radius: 12px;
+  padding-left: 15px;
+  padding-right: 15px;
+  width: 100%;
+  text-align: center;
+}
+
+img.profile-img {
+  border-radius: 5px;
+}
+
+.top-story {
+  margin-right: 50px;
+}
+
+/*User Page*/
+img.walkImage {
+  height: 233px;
+  border-top-left-radius: 15px;
+  border-bottom-left-radius: 15px;
+}
+button.edit-span, button.delete-span, button.addwalk-button {
+  width: 44px;
+  vertical-align: middle;
+  text-align: center;
+  margin-top: 15px;
+  margin-left: 0;
+  margin-right: 10px;
+  font-size: 10px;
+}
+
+button.edit-span:hover, button.delete-span:hover, button.addwalk-button:hover {
+  color: white;
+}
+
+.glyphicon-pencil:hover, .glyphicon-trash:hover {
+  color: #E28B80;
+}
+
+/*Walk Cards*/
+.glyphicon-pencil, .glyphicon-trash {
+  font-size: 11px;
+  padding: 5px;
+}
+h1.walkTitle {
+  font-family: 'Sintony', sans-serif;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+
+h4.walkUser {
+  font-family: 'Sintony', sans-serif;
+  font-weight: 400;
+  font-size: 12px;
+}
+
+p.walkLocation {
+  font-family: 'Sintony', sans-serif;
+  font-weight: 700;
+  font-size: 10px;
+}
+
+/*forms*/
+input.form-control,{
+  width: 70%;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300;
+  margin: auto;
+  font-size: 12px;
+}
+
+.userList-form {
+  margin: auto;
+  padding-top: 15px;
+  width: 60%;
+  background-color: lightgrey;
+}
+
+button.update-button, button.add-walk {
+  width: 95px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  font-size: 10px;
+  font-family: 'Sintony', sans-serif;
+}
+
+button.add-walk {
+  border-radius: 50%;
+  height: 65px;
+  width: 65px;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+button.add-walk:hover {
+  color: white;
+  height: 68px;
+  width: 68px;
+}
+
+div.add-walk-modal {
+  margin-bottom: 15px;
+  margin-left: 15px;
+  margin-top: -10px;
+}
+
+.walk-form {
+  width: 70%;
+}
+
+.form-group {
+  background-color: lightgrey;
+  z-index: 100;
+  width: 74%;
+}
+h4.modal-title {
+  font-family: 'Sintony', sans-serif;
+  font-weight: 700;
+  color: #2D4855;
+  text-transform: uppercase;
+  margin-top: 15px;
+  margin-left: 10px;
+}
+
+input.addWalk, textarea.addWalk {
+  font-family: 'Roboto', sans-serif;
+  font-size: 12px;
+  font-weight: 400;
 }

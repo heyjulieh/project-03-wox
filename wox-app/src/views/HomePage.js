@@ -13,7 +13,8 @@ class HomePage extends Component {
         <div className="homepage">
           <Jumbotron />
           <Nav />
-          <LandingContent />
+          <LandingContent
+            routeParams={this.props.params} />
           <Footer />
         </div>
 

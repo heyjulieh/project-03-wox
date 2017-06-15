@@ -6,14 +6,16 @@ var Schema = mongoose.Schema;
 var MessagesSchema = new Schema({
 	userSenderID: String, // reference
   userAcceptorID: String,
-  userNameSender: String,
-  userNameAcceptor: String,
 	title: String,
 	content: String,
 	date: Date,
-	important: Boolean,
   archive: Boolean,
-  user:
+  userSender:
+	{
+		type: Schema.Types.ObjectId,
+		ref: 'User'
+	},
+	userAcceptor:
 	{
 		type: Schema.Types.ObjectId,
 		ref: 'User'

@@ -10,7 +10,7 @@ var routes = (
 		<Route path='/' component={HomePage} />
 		<Route path='/walks' component={WalksPage} />
 		<Route path='/users/:userName' component={UserPage}/>
-		<Route path='/users/:userName/messages/:messageId' component={MessagesPage}/>
+		<Route path='/users/:userName/messages/' component={MessagesPage}/>
 	</div>
 )
 
@@ -18,4 +18,4 @@ var routes = (
 // add :uid to to user route path
 
 
-export default routes
+export default routes;

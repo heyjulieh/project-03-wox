@@ -1,11 +1,11 @@
 import React, {Component} from 'react'
 import { firebase, auth } from '../utils/firebase';
+import '../index.css';
 
 class Jumbotron extends Component {
   constructor(props) {
 		super(props);
 		this.state = {
-			pageName: 'HomePage',
       photoURL: '',
 			currentUser: null,
       loggedIn: false
@@ -41,9 +41,7 @@ class Jumbotron extends Component {
 	}
 
   componentDidMount() {
-
     setInterval(this.handleGetUserData, 3000);
-
   }
 
   handleGetUserData() {
@@ -54,7 +52,6 @@ class Jumbotron extends Component {
       console.log('clicked test button');
       this.props.onGetUserData(uData)
     }
-
   }
 
 	logoutButtonClicked(e) {
@@ -65,11 +62,12 @@ class Jumbotron extends Component {
 	}
 
   render() {
+
+    if(this.state.currentUser){
   		return(
         <div className="jumbotron">
           <div className="log pull-right">
             <a href="#"><img id="profile-pic" src={this.state.photoURL}/></a>
-            <button type="submit" className="login" onClick={this.loginButtonClicked}>login</button>
             <button type="submit" className="logout" onClick={this.logoutButtonClicked}>logout</button>
             <a href ="#"><span className="glyphicon glyphicon-envelope"/></a>
             <span className="message-counter">
@@ -80,6 +78,18 @@ class Jumbotron extends Component {
           <h2>W O X</h2>
         </div>
   		)
-  	}
+    }
+    else {
+      return(
+        <div className="jumbotron">
+          <div className="log pull-right">
+            <button type="submit" className="login" onClick={this.loginButtonClicked}>login</button>
+          </div>
+          <h2>W O X</h2>
+        </div>
+
+      )
+    }
   }
-  export default Jumbotron;
+}
+export default Jumbotron;

@@ -1,12 +1,12 @@
 var Messages = require('./messages');
+var Walks = require('./walks');
 'use strict';
 
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
 var UserSchema = new Schema({
-	firstName: String,
-  lastName: String,
+	user: String,
   userName: String,
   password: String,
   email: String,
@@ -19,21 +19,7 @@ var UserSchema = new Schema({
   status: String,
   interestedIn: String,
   blurb: String,
-  receivedMessages:
-  {
-    type: Schema.Types.ObjectId,
-		ref: 'Message'
-    ref: 'User'
-  } //reference
-  sentMessages:
-  {
-    type: Schema.Types.ObjectId,
-    ref: 'Message'
-    ref: 'User'
-  }
-  walks: [String], //reference and include other items in object
   verified: Boolean
-
 });
 
 var User = mongoose.model('User', UserSchema);

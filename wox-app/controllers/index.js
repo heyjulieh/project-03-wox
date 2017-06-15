@@ -1,6 +1,7 @@
 module.exports = {
-	api: require('./apiControllers'),
+	api: require('./apiController'),
 	user: require('./userController'),
 	messages: require('./userMessageController'),
-  walk: require('./userWalkController')
+  userWalks: require('./userWalkController'),
+	walks: require('./walkController')
 }

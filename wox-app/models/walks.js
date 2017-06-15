@@ -4,16 +4,18 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
 var WalksSchema = new Schema({
-	userCreated: String, // reference
   userCreatedID: String,
-  usersFavorited: [String],
+  usersFavorited: [String], //reference
   rating: Number,
 	title: String,
 	content: String,
+	location: String,
 	dateCreated: Date,
-	important: Boolean,
+	important: String, //yes or no
   archive: Boolean,
   private: Boolean,
+	images: [String],
+  userName: String,
   user:
 	{
 		type: Schema.Types.ObjectId,

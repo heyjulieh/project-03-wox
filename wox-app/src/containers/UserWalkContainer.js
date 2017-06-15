@@ -1,11 +1,12 @@
 import React, {Component} from 'react';
 import $ from 'jquery-ajax';
 
-import Walk from '../components/Walk'
+import User from '../components/User';
 import WalkList from '../components/WalkList';
+import Walk from '../components/Walk';
 import WalkForm from '../components/WalkForm'
 
-class WalkContainer extends Component {
+class UserWalkContainer extends Component {
 
 	// Research Prop.types
 	// Check to see if username is being passed in as a prop
@@ -13,11 +14,13 @@ class WalkContainer extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			walks: []
+			walks: [],
+			user: ''
 		};
 
-		console.log('walk state', this.state);
+		console.log('state is:', this.state.props);
 
+		this.loadUserFromServer = this.loadUserFromServer.bind(this);
 		this.loadWalksFromServer = this.loadWalksFromServer.bind(this);
 		this.handleNewWalkSubmit = this.handleNewWalkSubmit.bind(this);
 		this.handleWalkDelete = this.handleWalkDelete.bind(this);
@@ -30,15 +33,27 @@ class WalkContainer extends Component {
 		// need to load walks from server
 	    $.ajax({
 	      method: 'GET',
-	      url: `http://localhost:3000/api/walks`
+	      url: `http://localhost:3000/api/users/${this.props.routeParams.userName}/walks`
 	    })
 	    .then( (res) => {this.setState({walks: res})
 			})
+			console.log('routeParams is:', this.props.routeParams.userName);
   	}
+
+	loadUserFromServer(){
+
+		// need to load walks from server
+	    $.ajax({
+	      method: 'GET',
+	      url: `http://localhost:3000/api/users/${this.props.routeParams.userName}`
+	    })
+	    .then( (res) => {this.setState({user: res})
+			})
+			console.log('routeParams is:', this.props.routeParams.userName);
+  }
 
 	handleNewWalkSubmit(walk){
 
-		walk.userName = this.props.routeParams.userName;
 
 		console.log('reached handleNewWalkSubmit');
 		let walks = this.state.walks;
@@ -51,7 +66,7 @@ class WalkContainer extends Component {
 
 		$.ajax({
 			method: 'POST',
-			url: `http://localhost:3000/api/users/${this.props.routeParams.userName}/walks/`,
+			url: `http://localhost:3000/api/users/${this.props.routeParams.userName}/walks`,
 			data: walk
 		})
 		.then(res => {
@@ -60,36 +75,38 @@ class WalkContainer extends Component {
 			console.error(err);
 			this.setState({walks: walks});
 		});
-		console.log(this.props.routeParams.userName, 'username');
 	}
 
-handleWalkDelete(targetWalk){
-    $.ajax({
-      method: 'DELETE',
-      url: `http://localhost:3000/api/users/${this.props.routeParams.userName}/walks/:walkid`,
-	    })
-	    .then((res) => {
-				console.log('walkid is:', this.props.routeParams);
-	      console.log('Walk deleted');
-	    })
+	handleWalkDelete(targetWalk){
+	    $.ajax({
+	      method: 'DELETE',
+	      url: `http://localhost:3000/api/users/${this.props.routeParams.userName}/walks/${this.props.routeParams.walkId}`,
+		    })
+		    .then((res) => {
+					console.log('walkid is:', this.props.routeParams.walkId);
+		      console.log('Walk deleted');
+		    })
+		}
+
+	handleWalkUpdate(targetWalk) {
+		//sends the walks id and new text to our api
+		$.ajax({
+			method: 'PUT',
+			url: `http://localhost:3000/api/users/${this.props.routeParams.userName}/walks/${this.props.routeParams.walkId}`,
+			data: targetWalk
+		})
+		.then(res => {
+			console.log(res);
+		})
 	}
 
-  handleWalkUpdate(targetWalk) {
-    //sends the walks id and new text to our api
-    $.ajax({
-      method: 'PUT',
-      url: `http://localhost:3000/api/users/${this.props.routeParams.userName}/walks/:walkid`,
-      data: targetWalk
-    })
-    .then(res => {
-      console.log(res);
-    })
-  }
-
-  componentDidMount() {
-    this.loadWalksFromServer();
+  componentWillMount() {
+    this.loadUserFromServer();
+		this.loadWalksFromServer();
     // setInterval(this.loadWalksFromServer, this.props.pollInterval);
 		console.log('loadwalks', this.state.walks);
+		console.log('loaduser', this.state.user);
+
   }
 
 
@@ -99,24 +116,30 @@ handleWalkDelete(targetWalk){
 
 		const testWalk = this.state.walks[0]
 
-		console.log('targetWalk is: ', testWalk, targetWalk)
+		console.log('targetWalk is: ', testWalk)
 
 		return(
 
 			<div className="wrapper">
+				{/*<User
+					userName={targetWalk[0]}
+					user={this.state.walks}
+				/>*/}
 				<WalkForm
 					userName={targetWalk[0]}
 					walks={this.state.walks}
 					onWalkFormSubmit={this.handleNewWalkSubmit} />
+
 				<WalkList
 					userName={targetWalk[0]}
 					walks={this.state.walks}
 					onWalkDelete={ this.handleWalkDelete }
-			 		onWalkUpdate={ this.handleWalkUpdate }
-					 />
-      </div>
+			 		onWalkUpdate={ this.handleWalkUpdate }	/>
+				</div>
+
+
 		)
 	}
 }
 
-export default WalkContainer;
+export default UserWalkContainer;

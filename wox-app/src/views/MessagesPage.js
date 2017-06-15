@@ -2,23 +2,42 @@ import React, { Component } from 'react';
 import '../index.css';
 import Jumbotron from '../components/Jumbotron';
 import Nav from '../components/Nav';
-import LandingContent from '../components/LandingContent';
+import MessageContainer from '../containers/MessageContainer';
 import Footer from '../components/Footer';
 
-class MessagePage extends Component {
-
+class MessagesPage extends Component {
+  constructor() {
+    super();
+    this.state = {
+      userData: []
+    }
+  }
+  getUserData(uData) {
+    this.setState({userData : uData})
+  }
 
   render() {
-    return (
+    {/*if(this.state.currentUser){*/}
+      return (
         <div className="messagepage">
-          <Jumbotron />
+          <Jumbotron
+            onGetUserData={this.getUserData.bind(this)}/>
           <Nav />
-          <LandingContent />
+          <h1>Your Messages</h1>
+          <MessageContainer
+            routeParams={this.props.params}/>
           <Footer />
         </div>
-
-    );
+      );
+    {/*}}
+    {else {
+      return (
+        <div>
+          <h3>"You do not have access to this page. Please log in."</h3>
+        </div>
+      )
+    } */}
   }
 }
 
-export default MessagePage;
+export default MessagesPage;

@@ -1,27 +1,32 @@
 import React, {Component} from 'react'
 import $ from 'jquery-ajax'
 import User from '../components/User'
+import Walk from '../components/Walk'
+import UserWalkContainer from './UserWalkContainer'
 
 
 class UserContainer extends Component {
-	constructor() {
-		super();
+	constructor(props) {
+		super(props);
 		this.state = {
+			walk:[],
 			user: []
 		}
 
-		this.loadPostFromServer = this.loadUserFromServer.bind(this);
-		this.handleUserUpdate = this.handleUserUpdate.bind(this);
-		this.handleUserDelete = this.handleUserDelete.bind(this);
+		console.log('user state', this.state);
+
+		this.loadUserFromServer = this.loadUserFromServer.bind(this);
+		// this.handleUserUpdate = this.handleUserUpdate.bind(this);
+		// this.handleUserDelete = this.handleUserDelete.bind(this);
 	}
 
 	loadUserFromServer() {
 		$.ajax({
 			method: 'GET',
-			url: `http://localhost:3000/api/users/${this.props.routeParams.userId}`
+			url: `http://localhost:3000/api/users/${this.props.routeParams.userName}`
 		})
 		.then((res) => {
-			console.log(this.props.routeParams, 'route params')
+			console.log(this.props, 'props')
 			console.log('user res is: ', res)
 			// find the post within the returned res.posts that matches our URL post id
 			this.setState({user: res})
@@ -29,16 +34,16 @@ class UserContainer extends Component {
 
 	}
 
-	handlePostDelete(targetUser) {
+	handleUserDelete(targetUser) {
 		$.ajax({
 			method: 'DELETE',
-			url: `http://localhost:3000/api/users/${this.props.routeParams.userId}`,
+			url: `http://localhost:3000/api/users/${this.props.routeParams.userName}`,
 			data: targetUser
 		})
 		.then((res) => {
 			console.log('User deleted', res)
 		})
-		window.location.href=`http://localhost:3001/users/${this.props.routeParams.userId}`
+		window.location.href=`http://localhost:5000/users/${this.props.routeParams.userId}`
 	}
 
 	handleUserUpdate(targetUser) {
@@ -55,22 +60,25 @@ class UserContainer extends Component {
 		})
 	}
 
-	componentDidMount() {
+	componentWillMount() {
 		this.loadUserFromServer();
+		console.log('loadUser', this.state.user);
 	}
 
 	render() {
+
 		return(
-
-			<User
-				user={ this.state.post }
-				onUserUpdate={this.handleUserUpdate}
-				onUserDelete={this.handleUserDelete}
-			/>
-
+			<div>
+				<User
+					key={this.state.user._id}
+					uniqueId={[this.state.user._id]}
+					user={ this.state.user.userName }
+					onUserUpdate={this.handleUserUpdate}
+					onUserDelete={this.handleUserDelete}
+				/>
+			</div>
 		)
 	}
-
 }
 
 export default UserContainer;
