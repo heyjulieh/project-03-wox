@@ -1,6 +1,6 @@
 # WOX
 
-This is a capstone project done as part of WDI-36 at General Assembly. Warning: there is a lot of work to be done!
+This is a capstone project done as part of WDI-37 at General Assembly. Warning: there is a lot of work to be done!
 
 An app that helps inspire and form better relationships through walking. The app provides inspiration and connections through recommendations of places to walk. The app will also provide messaging ability (one users will be able to message another-- and they will be able to see these on a message page). Finally, the app will be able to "favorite" walks-- whether it be their own or another users-- they will be able to see these favorited walks on their profile page. These favorited walks will potentially be synced up with a calendar also found in the profile page.
 
